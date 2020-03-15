@@ -1,3 +1,13 @@
+# Idea Folder
+.idea/
+
+# Gradle Files
+*.gradle
+gradle/*
+gradlew
+gradlew.bat
+build/*
+
 # Compiled class file
 *.class
 
