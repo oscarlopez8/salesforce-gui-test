@@ -13,7 +13,7 @@
 
 <!DOCTYPE module PUBLIC
         "-//Puppy Crawl//DTD Check Configuration 1.2//EN"
-        "https://checkstyle.org/dtds/configuration_1_2.dtd">
+        "https://checkstyle.org/dtds/configuration_1_2.dtd" >
 
 <!--
   Checkstyle configuration that checks the sun coding conventions from:
