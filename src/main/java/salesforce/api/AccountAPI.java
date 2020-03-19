@@ -21,7 +21,7 @@ import static salesforce.api.EndPoints.ACCOUNT_ENDPOINT;
 import static salesforce.api.EndPoints.SLASH;
 
 /**
- * AccountAPI class.
+ * AccountAPI class to information of account.
  *
  * @author Oscar Lopez.
  * @version 1.0
