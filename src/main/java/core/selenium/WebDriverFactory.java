@@ -20,7 +20,20 @@ import org.openqa.selenium.WebDriver;
 import java.util.HashMap;
 import java.util.Map;
 
-public class WebDriverFactory {
+/**
+ * This class is to select a browser.
+ *
+ * @author Oscar Lopez
+ * @version 1.0
+ */
+public final class WebDriverFactory {
+
+    /**
+     * Contructor of the class.
+     */
+    private WebDriverFactory() {
+
+    }
 
     private static Map<String, IDriver> browsers = new HashMap<>();
     static {

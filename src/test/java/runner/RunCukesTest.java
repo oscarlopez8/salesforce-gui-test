@@ -18,11 +18,18 @@ import cucumber.api.CucumberOptions;
 import cucumber.api.testng.AbstractTestNGCucumberTests;
 import org.testng.annotations.AfterTest;
 
+
+/**
+ * This class to TestNG hooks.
+ *
+ * @author Oscar Lopez
+ * @version 1.0
+ */
 @CucumberOptions(
         plugin = {"pretty",
                 "html:target/cucumber",
                 "json:target/cucumber.json"},
-        glue = {"steps", "hooks"},
+        glue = {"steps", "hook"},
         features = {"src/test/resources/features"},
         monochrome = true)
 public class RunCukesTest extends AbstractTestNGCucumberTests {

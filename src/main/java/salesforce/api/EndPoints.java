@@ -10,22 +10,28 @@
  * with Jala Foundation.
  */
 
-package core.selenium.webdrivers;
-
-import org.openqa.selenium.WebDriver;
+package salesforce.api;
 
 /**
- * This Interface is to init a driver.
+ * EndPoints class.
  *
  * @author Oscar Lopez
  * @version 1.0
  */
-public interface IDriver {
+public class EndPoints {
 
     /**
-     * This method initialize browser.
-     *
-     * @return a IDriver
+     * Constant to concat with the endpoint.
      */
-    WebDriver initDriver();
+    public static final String SLASH = "/";
+
+    /**
+     * Endpoint of Account.
+     */
+    public static final String ACCOUNT_ENDPOINT = "/Account";
+
+    /**
+     * Constructor protected.
+     */
+    protected EndPoints() { }
 }

@@ -17,7 +17,13 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.concurrent.TimeUnit;
 
-public class WebDriverManager {
+/**
+ * This class creates a instance of Browser.
+ *
+ * @author Oscar Lopez
+ * @version 1.0
+ */
+public final class WebDriverManager {
 
     // Content WebDriverManager.
     private static WebDriverManager webDriverManager;
@@ -41,8 +47,7 @@ public class WebDriverManager {
      * @return a webDriverManager.
      */
     public static WebDriverManager getInstance() {
-
-        if (webDriverManager == null || webDriverManager.webDriver == null ) {
+        if (webDriverManager == null || webDriverManager.webDriver == null) {
             webDriverManager = new WebDriverManager();
         }
         return webDriverManager;

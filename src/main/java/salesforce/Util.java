@@ -10,22 +10,10 @@
  * with Jala Foundation.
  */
 
-package core.selenium.webdrivers;
-
-import org.openqa.selenium.WebDriver;
+package salesforce;
 
 /**
- * This Interface is to init a driver.
- *
- * @author Oscar Lopez
- * @version 1.0
+ * Class.
  */
-public interface IDriver {
-
-    /**
-     * This method initialize browser.
-     *
-     * @return a IDriver
-     */
-    WebDriver initDriver();
+public class Util {
 }
