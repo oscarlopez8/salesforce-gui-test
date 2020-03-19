@@ -17,7 +17,7 @@ import core.selenium.util.SalesForceGetProperties;
 import org.openqa.selenium.WebDriver;
 
 /**
- * TransporterPage class.
+ * TransporterPage class provides links to navigate salesforce.com.
  *
  * @author Oscar Lopez
  * @version 1.0

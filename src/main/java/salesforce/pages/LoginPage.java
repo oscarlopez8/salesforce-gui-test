@@ -48,7 +48,6 @@ public class LoginPage extends BasePage {
     @FindBy(id = "Login")
     private WebElement loginButton;
 
-
     /**
      * Waits to Web Element be visible.
      */
