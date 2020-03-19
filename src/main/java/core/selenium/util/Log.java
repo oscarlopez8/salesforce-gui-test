@@ -16,7 +16,13 @@ import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 
-public class Log {
+/**
+ * This class creates a log file.
+ *
+ * @author Oscar Lopez
+ * @version 1.0
+ */
+public final class Log {
 
     private static Logger logger = Logger.getLogger(Log.class);
     private static Log loggerInstance;

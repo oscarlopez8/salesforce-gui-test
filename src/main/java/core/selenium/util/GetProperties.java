@@ -17,16 +17,35 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
-public class GetProperties {
+/**
+ * This class creates to read a gradle.properties.
+ *
+ * @author Oscar Lopez
+ * @version 1.0
+ */
+public final class GetProperties {
 
     /**
-     * Allows to get properties from properties file.
+     * Constructor of the Class.
+     */
+    private GetProperties() {
+
+    }
+    /**
+     * Initialize a new GetProperties.
+     * @return GetProperties.
+     */
+    public static GetProperties getInstance() {
+        return new GetProperties();
+    }
+
+    /**
+     * Gets properties from properties file.
      *
      * @param path - Path of Gradle properties file.
      * @return Properties.
      */
     public static Properties getProperties(final String path) {
-
         try  {
             InputStream input = new FileInputStream(path);
             Properties properties = new Properties();

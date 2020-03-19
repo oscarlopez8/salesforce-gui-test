@@ -16,7 +16,13 @@ import core.selenium.util.GetProperties;
 
 import java.util.Properties;
 
-public class WebDriverConfig {
+/**
+ * This class is to configuration of Webdriver.
+ *
+ * @author Oscar Lopez
+ * @version 1.0
+ */
+public final class WebDriverConfig {
 
     // Path of gradle properties file.
     public static final String PATH_OF_GRADLE_PROPERTIES_FILE = "gradle.properties";
@@ -30,7 +36,7 @@ public class WebDriverConfig {
     /**
      * This is constructor for init variables.
      */
-    private WebDriverConfig() {
+    public WebDriverConfig() {
         initializes();
     }
 

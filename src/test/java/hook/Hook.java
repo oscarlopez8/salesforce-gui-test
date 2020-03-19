@@ -19,6 +19,12 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 
+/**
+ * This class manage the Hooks.
+ *
+ * @author Oscar Lopez
+ * @version 1.0
+ */
 public class Hook {
 
     private WebDriver driver;

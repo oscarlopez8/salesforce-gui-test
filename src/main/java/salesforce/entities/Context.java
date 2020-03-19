@@ -10,22 +10,34 @@
  * with Jala Foundation.
  */
 
-package core.selenium.webdrivers;
-
-import org.openqa.selenium.WebDriver;
+package salesforce.entities;
 
 /**
- * This Interface is to init a driver.
+ * Context class.
  *
- * @author Oscar Lopez
+ * @author Oscar Lopez.
  * @version 1.0
  */
-public interface IDriver {
+public class Context {
 
     /**
-     * This method initialize browser.
-     *
-     * @return a IDriver
+     * Account to manage in the context.
      */
-    WebDriver initDriver();
+    private Account account;
+
+    /**
+     * Constructor of Context.
+     */
+    public Context() {
+        this.account = new Account();
+    }
+
+    /**
+     * Returns the account of context.
+     *
+     * @return an account.
+     */
+    public Account getAccount() {
+        return account;
+    }
 }

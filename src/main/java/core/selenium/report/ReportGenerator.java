@@ -22,12 +22,21 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
-public class ReportGenerator {
+/**
+ * This class creates a instance of Browser.
+ *
+ * @author Oscar Lopez
+ * @version 1.0
+ */
+public final class ReportGenerator {
 
     // Path of gradle properties file.
     public static final String PATH_OF_GRADLE_PROPERTIES_FILE = "gradle.properties";
     public static final String BROWSER = "gradle.properties";
 
+    /**
+     * Constructor of a class.
+     */
     private ReportGenerator() {
 
     }
