@@ -31,7 +31,12 @@ public class EndPoints {
     public static final String ACCOUNT_ENDPOINT = "/Account";
 
     /**
-     * Constructor protected.
+     * Endpoint of contact.
+     */
+    public static final String CONTACT_ENDPOINT = "/Contact";
+
+    /**
+     * Constructor EndPoints.
      */
     protected EndPoints() { }
 }
