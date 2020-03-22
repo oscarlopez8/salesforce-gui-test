@@ -46,6 +46,7 @@ public final class GetProperties {
      * @return Properties.
      */
     public static Properties getProperties(final String path) {
+
         try  {
             InputStream input = new FileInputStream(path);
             Properties properties = new Properties();

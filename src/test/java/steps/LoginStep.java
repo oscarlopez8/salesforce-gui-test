@@ -13,9 +13,8 @@
 package steps;
 
 import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
 import salesforce.pages.LoginPage;
-import salesforce.pages.TransporterPage;
+import salesforce.ui.pages.TransporterPage;
 
 /**
  * LoginStep class.
@@ -25,16 +24,23 @@ import salesforce.pages.TransporterPage;
  */
 public class LoginStep {
 
+    /**
+     * Variable for the page transporter.
+     */
     private TransporterPage transporterPage = new TransporterPage();
+
+    /**
+     * Variable for the home page.
+     */
     private LoginPage loginPage;
 
     /**
-     * This is the login Method
+     * This is the login Method.
      * @param userName parameter.
      * @param password parameter.
      */
-    @Given("I login with {string} and {string}")
-    public void iLoginWithAnd(final String userName, final String password) {
+    @Given("I am logged in SalesForce with {string} and {string}")
+    public void iAmLoggedInSalesForceWithAnd(final String userName, final String password) {
         loginPage = transporterPage.navigateToLoginPage();
         loginPage.login(userName, password);
     }

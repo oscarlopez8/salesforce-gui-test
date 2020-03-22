@@ -52,7 +52,7 @@ public class ContactAPI {
     }
 
     /**
-     * Gets a contact by Id
+     * Gets a contact by Id.
      *
      * @param contactId to contact with the base endpoint.
      */
@@ -63,10 +63,13 @@ public class ContactAPI {
 
     /**
      * Create a contact.
+     *
+     * @param newContact Map to information of contact.
+     * @return response body.
      */
-    public String createContact(Map<String, String> NewContat) {
+    public String createContact(final Map<String, String> newContact) {
         finalEndpoint = CONTACT_ENDPOINT;
-        final Response response = restClient.post(finalEndpoint, NewContat);
+        final Response response = restClient.post(finalEndpoint, newContact);
         return response.body().jsonPath().getString("id");
     }
 }

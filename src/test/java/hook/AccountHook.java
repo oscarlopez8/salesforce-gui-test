@@ -18,8 +18,10 @@ import salesforce.api.AccountAPI;
 import salesforce.entities.Account;
 import salesforce.entities.Context;
 
-import java.util.HashMap;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
+
 
 /**
  * Account hook class.
@@ -29,6 +31,7 @@ import java.util.Map;
  */
 public class AccountHook {
 
+    public static final String PATHOFFILE = "accounts.dat";
     /**
      * Variable for the context.
      */
@@ -62,8 +65,14 @@ public class AccountHook {
      */
     @Before("@create-account")
     public void beforeScenario() {
-        Map<String, String> createNewAccount = new HashMap<>();
-        createNewAccount.put("Name", "Account");
-        account.setId(AccountAPI.getInstance().createAccount(createNewAccount));
+        List<Account> accounts = new ArrayList<>();
+        Map<String, String> createNewAccount;
+
+        for (Account ac : accounts) {
+//            createNewAccount = new HashMap<>();
+//            createNewAccount.put("Name", ac.getAccountName());
+//            account.setId(AccountAPI.getInstance().createAccount(createNewAccount));
+            System.out.println(ac.getAccountName());
+        }
     }
 }

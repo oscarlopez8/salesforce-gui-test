@@ -29,10 +29,9 @@ public class ContactHook {
 
     /**
      * Constructor of class.
-     *
-     * @param context of type context.
+     * @param context of a class.
      */
-    public ContactHook(Context context) {
+    public ContactHook(final Context context) {
         this.context = context;
         this.contact = context.getContact();
     }
@@ -50,7 +49,7 @@ public class ContactHook {
      */
     @Before("@create-contact")
     public void beforeScenario() {
-        Map<String,String> createNewContact = new HashMap<>();
+        Map<String, String> createNewContact = new HashMap<>();
         createNewContact.put("firstName", "Contact First Name");
         createNewContact.put("LastName", "Contact Last Name");
         createNewContact.put("email", "Contact Email");
