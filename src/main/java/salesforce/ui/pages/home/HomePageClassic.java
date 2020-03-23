@@ -43,16 +43,6 @@ public class HomePageClassic extends HomePage {
     private WebElement setupButton;
 
     /**
-     * Opens the event form.
-     *
-     * @return an instance eventClassicForm.
-     */
-//    public EventFormAbstract openEventForm() {
-//        newEventBtn.click();
-//        return new EventClassicForm();
-//    }
-
-    /**
      * Waits until a webElement is loaded.
      */
     @Override

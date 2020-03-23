@@ -21,14 +21,29 @@ package salesforce.entities;
 public class Account {
 
     /**
-     * Variable for the id of account.
+     * Variable for the id.
      */
     private String id;
 
     /**
-     * Variable for the name account of an Account.
+     * Variable for the name account.
      */
-    private String accountName;
+    private String name;
+
+    /**
+     * Variable for the name Account Number.
+     */
+    private String accountNumber;
+
+    /**
+     * Variable for the phone.
+     */
+    private String phone;
+
+    /**
+     * Variable for the phone.
+     */
+    private String webSite;
 
     /**
      * Returns the id of the account.
@@ -54,15 +69,66 @@ public class Account {
      * @return name account as string.
      */
     public String getAccountName() {
-        return accountName;
+        return name;
     }
 
     /**
      * Sets the name of an Account sending a string.
      *
-     * @param accountName for the name of the account.
+     * @param name for the name of the account.
      */
-    public void setAccountName(final String accountName) {
-        this.accountName = accountName;
+    public void setAccountName(final String name) {
+        this.name = name;
+    }
+
+    /**
+     * Returns the accountNumber of the account.
+     *
+     * @return the id as string.
+     */
+    public String getAccountNumber() {
+        return accountNumber;
+    }
+
+    /**
+     * Set a Account Number.
+     * @param accountNumber param.
+     */
+    public void setAccountNumber(String accountNumber) {
+        this.accountNumber = accountNumber;
+    }
+
+    /**
+     * Returns the phone of the account.
+     *
+     * @return the id as string.
+     */
+    public String getPhone() {
+        return phone;
+    }
+
+    /**
+     * Set a Account phone.
+     * @param phone param.
+     */
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    /**
+     * Returns the webSite of the account.
+     *
+     * @return the id as string.
+     */
+    public String getWebSite() {
+        return webSite;
+    }
+
+    /**
+     * Set a Account Web Site.
+     * @param webSite param.
+     */
+    public void setWebSite(String webSite) {
+        this.webSite = webSite;
     }
 }

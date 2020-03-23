@@ -14,7 +14,7 @@ public class Contact {
     private String id;
 
     /**
-     * Salutation Variablet of Contact.
+     * Salutation Variable of Contact.
      */
     private String salutation;
 

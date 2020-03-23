@@ -71,7 +71,7 @@ public class CaseAPI {
     }
 
     /**
-     * Deletes an Case by id.
+     * Deletes a Case by id.
      *
      * @param accountId to concat with the base endpoint.
      */
