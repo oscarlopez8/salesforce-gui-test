@@ -35,6 +35,11 @@ public class SalesForceGetProperties {
     public static final String CONTENT_TYPE = "Content-Type";
 
     /**
+     * Constant for the key Json Account.
+     */
+    public static final String JSON_ACCOUNT = "accountPath";
+
+    /**
      * Constant for the key access token.
      */
     public static final String TOKEN = "Access-Token";
@@ -108,5 +113,14 @@ public class SalesForceGetProperties {
      */
     public String getContentType() {
         return getAppProperties().get(CONTENT_TYPE);
+    }
+
+    /**
+     * Returns the Json Account from the properties file.
+     *
+     * @return the content type as string.
+     */
+    public String getJsonAccount() {
+        return getAppProperties().get(JSON_ACCOUNT);
     }
 }

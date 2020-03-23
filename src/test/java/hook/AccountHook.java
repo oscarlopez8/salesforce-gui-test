@@ -13,21 +13,25 @@
 package hook;
 
 import cucumber.api.java.After;
+import cucumber.api.java.Before;
 import salesforce.api.AccountAPI;
 import salesforce.entities.Account;
 import salesforce.entities.Context;
 
-import java.util.HashMap;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
+
 /**
- * Account class.
+ * Account hook class.
  *
  * @author Oscar Lopez.
  * @version 1.0
  */
 public class AccountHook {
 
+    public static final String PATHOFFILE = "accounts.dat";
     /**
      * Variable for the context.
      */
@@ -49,12 +53,26 @@ public class AccountHook {
     }
 
     /**
+     * Deletes an account by id.
+     */
+    @After("@delete-account")
+    public void afterScenario() {
+        AccountAPI.getInstance().deleteAccount(account.getId());
+    }
+
+    /**
      * Creates an account before scenario.
      */
-    @After("@create-account")
-    public void afterScenario() {
-        Map<String, String> createNewAccount = new HashMap<>();
-        createNewAccount.put("Name", "Account_Test");
-        account.setId(AccountAPI.getInstance().createAccount(createNewAccount));
+    @Before("@create-account")
+    public void beforeScenario() {
+        List<Account> accounts = new ArrayList<>();
+        Map<String, String> createNewAccount;
+
+        for (Account ac : accounts) {
+//            createNewAccount = new HashMap<>();
+//            createNewAccount.put("Name", ac.getAccountName());
+//            account.setId(AccountAPI.getInstance().createAccount(createNewAccount));
+            System.out.println(ac.getAccountName());
+        }
     }
 }

@@ -26,10 +26,22 @@ public class Context {
     private Account account;
 
     /**
+     * Contact to manage in the context.
+     */
+    private Contact contact;
+
+    /**
+     * Case to manage in the context.
+     */
+    private Case cases;
+
+    /**
      * Constructor of Context.
      */
     public Context() {
         this.account = new Account();
+        this.contact = new Contact();
+        this.cases = new Case();
     }
 
     /**
@@ -39,5 +51,23 @@ public class Context {
      */
     public Account getAccount() {
         return account;
+    }
+
+    /**
+     * Returns the contact of context.
+     *
+     * @return contact.
+     */
+    public Contact getContact() {
+        return contact;
+    }
+
+    /**
+     * Returns the case of context.
+     *
+     * @return case.
+     */
+    public Case getCases() {
+        return cases;
     }
 }

@@ -10,8 +10,17 @@
  * with Jala Foundation.
  */
 
-package core;
+package salesforce.ui.pages.home;
 
-public class utils {
-    
+import salesforce.pages.BasePage;
+
+/**
+ * Home Page class.
+ *
+ * @author Oscar Lopez.
+ * @version 1.0
+ */
+public abstract class HomePage extends BasePage {
+
+
 }

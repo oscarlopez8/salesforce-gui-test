@@ -10,11 +10,15 @@
  * with Jala Foundation.
  */
 
-package salesforce.pages;
+package salesforce.ui.pages;
 
 import core.selenium.WebDriverManager;
 import core.selenium.util.SalesForceGetProperties;
 import org.openqa.selenium.WebDriver;
+import salesforce.pages.LoginPage;
+import salesforce.ui.pages.home.HomePage;
+
+import java.util.Properties;
 
 /**
  * TransporterPage class provides links to navigate salesforce.com.
@@ -30,11 +34,22 @@ public class TransporterPage {
     private static final WebDriver WEB_DRIVER = WebDriverManager.getInstance().getWebDriver();
 
     /**
+     * Constant for the page layout type.
+     */
+    private static final String PAGE_LAYOUT_TYPE = PageUserExperienceType.getPageLayoutName();
+
+    /**
+     * Constant for the message of exception.
+     */
+    private static final String MESSAGE_FOR_UNKNOWN_LAYOUT = "Unknown layout type";
+
+    /**
      * Navigates to the login page.
      *
      * @return a new login page.
      */
     public LoginPage navigateToLoginPage() {
+        Properties props = System.getProperties();
         navigateToURL(SalesForceGetProperties.getInstance().getAppProperties().get("login"));
         return new LoginPage();
     }
@@ -50,5 +65,24 @@ public class TransporterPage {
         } catch (NullPointerException ex) {
             ex.printStackTrace();
         }
+    }
+
+    /**
+     * Navigates a the home page according to the page layout.
+     *
+     * @return a home page according to the page layout.
+     */
+    public HomePage navigateToHomePage() {
+        switch (PAGE_LAYOUT_TYPE) {
+            case "classic":
+                navigateToURL(SalesForceGetProperties.getInstance().getAppProperties().get("classic-url"));
+                break;
+            case "lightning":
+                navigateToURL(SalesForceGetProperties.getInstance().getAppProperties().get("lightning-url"));
+                break;
+            default:
+                throw new RuntimeException(MESSAGE_FOR_UNKNOWN_LAYOUT);
+        }
+        return AppPageFactory.getHomePageManager();
     }
 }
