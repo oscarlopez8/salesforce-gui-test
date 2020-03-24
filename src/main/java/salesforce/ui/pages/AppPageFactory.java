@@ -12,6 +12,11 @@
 
 package salesforce.ui.pages;
 
+import salesforce.ui.pages.app.BaseAppClassicPage;
+import salesforce.ui.pages.app.BaseAppLightningPage;
+import salesforce.ui.pages.app.BaseAppPageAbstract;
+import salesforce.ui.pages.cases.CaseClassicPage;
+import salesforce.ui.pages.cases.CasePageAbstract;
 import salesforce.ui.pages.home.HomePage;
 import salesforce.ui.pages.home.HomePageClassic;
 import salesforce.ui.pages.home.HomePageLightning;
@@ -57,5 +62,45 @@ public class AppPageFactory {
                 throw new RuntimeException(MESSAGE_FOR_UNKNOWN_LAYOUT);
         }
         return homePage;
+    }
+
+    /**
+     * Gets the Base App page according the page layout.
+     *
+     * @return a base app page.
+     */
+    public static BaseAppPageAbstract getBaseAppPage() {
+        final BaseAppPageAbstract baseAppPage;
+        switch (PAGE_LAYOUT_TYPE) {
+            case "classic":
+                baseAppPage = new BaseAppClassicPage();
+                break;
+            case "lightning":
+                baseAppPage = new BaseAppLightningPage();
+                break;
+            default:
+                throw new RuntimeException(MESSAGE_FOR_UNKNOWN_LAYOUT);
+        }
+        return baseAppPage;
+    }
+
+    /**
+     * Returns the case page according the page layout.
+     *
+     * @return a case page.
+     */
+    public static CasePageAbstract getCasePage() {
+        final CasePageAbstract casePage;
+        switch (PAGE_LAYOUT_TYPE) {
+            case "classic":
+                casePage = new CaseClassicPage();
+                break;
+            case "lightning":
+                casePage = new CaseClassicPage();
+                break;
+            default:
+                throw new RuntimeException(MESSAGE_FOR_UNKNOWN_LAYOUT);
+        }
+        return casePage;
     }
 }

@@ -17,7 +17,8 @@ import salesforce.api.rest.RestClientAPI;
 
 import java.util.Map;
 
-import static salesforce.api.EndPoints.*;
+import static salesforce.api.EndPoints.CASE_ENDPOINT;
+import static salesforce.api.EndPoints.SLASH;
 
 /**
  * CaseAPI class to information of Case.
@@ -64,7 +65,7 @@ public class CaseAPI {
      * @param newCase to sent the body of the request.
      * @return the id of account created.
      */
-    public String createAccount(final Map<String, String> newCase) {
+    public String createCase(final Map<String, String> newCase) {
         finalEndpoint = CASE_ENDPOINT;
         response = restClient.post(finalEndpoint, newCase);
         return response.body().jsonPath().getString("id");
@@ -75,8 +76,8 @@ public class CaseAPI {
      *
      * @param accountId to concat with the base endpoint.
      */
-    public void deleteAccount(final String accountId) {
-        finalEndpoint = ACCOUNT_ENDPOINT.concat(SLASH.concat(accountId));
+    public void deleteCase(final String accountId) {
+        finalEndpoint = CASE_ENDPOINT.concat(SLASH.concat(accountId));
         response = restClient.delete(finalEndpoint);
     }
 }
