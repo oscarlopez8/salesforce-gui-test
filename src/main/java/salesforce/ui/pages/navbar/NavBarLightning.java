@@ -27,13 +27,22 @@ import salesforce.ui.pages.cases.CasePageAbstract;
  */
 public class NavBarLightning extends NavBar {
 
+    /**
+     * Web element of allMenusTab.
+     */
     @FindBy(css = "li[id='AllTab_Tab']")
     private WebElement allMenusTab;
 
-    //@FindBy(css = "a[class='listRelatedObject caseBlock title']")
-    @FindBy(css = "div[class='slds-icon-waffle']")
+    /**
+     * Web element of case Option.
+     */
+    @FindBy(css = "a[class='listRelatedObject caseBlock title']")
     private WebElement caseOption;
 
+    /**
+     * Web element of button More.
+     *
+     */
     @FindBy(css = ".slds-p-right_small")
     private WebElement buttonMore;
 
@@ -74,6 +83,6 @@ public class NavBarLightning extends NavBar {
      */
     @Override
     protected void waitUntilPageObjectIsLoaded() {
-       //wait.until(ExpectedConditions.visibilityOf(caseOption));
+       wait.until(ExpectedConditions.visibilityOf(caseOption));
     }
 }

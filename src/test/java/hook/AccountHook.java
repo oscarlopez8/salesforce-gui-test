@@ -69,29 +69,9 @@ public class AccountHook {
      * Creates an account before scenario.
      */
     @Before("@create-account")
-    public void beforeScenario() throws IOException {
-        String path = SalesForceGetProperties.getInstance().getAppProperties().get("accountPath");
-        List<Account> accounts = new ArrayList<>();
-        Account account = getEntityFromJSON(Account.class, path);
-        accounts.add(account);
-        Map<String, String> createNewAccount;
-
-
-        for (Account ac : accounts) {
-//            createNewAccount = new HashMap<>();
-//            createNewAccount.put("Name", ac.getAccountName());
-//            account.setId(AccountAPI.getInstance().createAccount(createNewAccount));
-            System.out.println(ac.getAccountName());
-        }
+    public void beforeScenarioWithName() {
+        Map<String, String> createNewAccount = new HashMap<>();
+        createNewAccount.put("Name", "Account_Test");
+        account.setId(AccountAPI.getInstance().createAccount(createNewAccount));
     }
-
-    /**
-     * Creates an account before scenario.
-     */
-//    @Before("@create-account")
-//    public void beforeScenario() {
-//        Map<String, String> createNewAccount = new HashMap<>();
-//        createNewAccount.put("Name", "Account_Test");
-//        account.setId(AccountAPI.getInstance().createAccount(createNewAccount));
-//    }
 }

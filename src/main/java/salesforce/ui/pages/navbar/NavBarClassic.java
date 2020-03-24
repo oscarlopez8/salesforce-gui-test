@@ -38,9 +38,15 @@ public class NavBarClassic extends NavBar {
     @FindBy(id = "Case_Tab")
     private WebElement caseMenuBtn;
 
+    /**
+     * Web element of allMenusTab.
+     */
     @FindBy(css = "li[id='AllTab_Tab']")
     private WebElement allMenusTab;
 
+    /**
+     * Web element of case Option.
+     */
     @FindBy(css = "a[class='listRelatedObject caseBlock title']")
     private WebElement caseOption;
     /**
