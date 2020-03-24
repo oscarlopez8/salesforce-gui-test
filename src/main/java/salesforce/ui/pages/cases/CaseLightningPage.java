@@ -10,30 +10,38 @@
  * with Jala Foundation.
  */
 
-package salesforce.ui.pages.home;
+package salesforce.ui.pages.cases;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 /**
- * Home Page Lightning class.
+ * Base Case Lightning Page class.
  *
  * @author Oscar Lopez.
  * @version 1.0
  */
-public class HomePageLightning extends HomePage {
+public class CaseLightningPage extends CasePageAbstract {
 
     /**
-     * Web element "appLauncherBtn",by validate HomeLightningPage.
+     * Returns a web element for verify the detail event is open.
+     *
+     * @return an instance web element.
      */
-    @FindBy(css = "button.slds-button div.slds-icon-waffle")
-    private WebElement appLauncherBtn;
+    @Override
+    public WebElement buttonNew() {
+        return null;
+    }
 
     /**
-     * Web element "eventLnk",by open CalendarLightningPage.
+     * Return the Case page.
+     *
+     * @return an instance eventPageAbstract.
      */
-    @FindBy(id = "setup")
-    private WebElement setupButton;
+    @Override
+    public CasePageAbstract getCasePage() {
+        return null;
+    }
 
     /**
      * Waits until a webElement is loaded.
@@ -41,12 +49,5 @@ public class HomePageLightning extends HomePage {
     @Override
     protected void waitUntilPageObjectIsLoaded() {
 
-    }
-
-    /**
-     * Click on setup button.
-     */
-    public void setSetupButton() {
-        this.setupButton.click();
     }
 }

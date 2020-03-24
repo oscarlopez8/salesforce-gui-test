@@ -94,7 +94,7 @@ public class Account {
      * Set a Account Number.
      * @param accountNumber param.
      */
-    public void setAccountNumber(String accountNumber) {
+    public void setAccountNumber(final String accountNumber) {
         this.accountNumber = accountNumber;
     }
 
@@ -111,7 +111,7 @@ public class Account {
      * Set a Account phone.
      * @param phone param.
      */
-    public void setPhone(String phone) {
+    public void setPhone(final String phone) {
         this.phone = phone;
     }
 
@@ -128,7 +128,7 @@ public class Account {
      * Set a Account Web Site.
      * @param webSite param.
      */
-    public void setWebSite(String webSite) {
+    public void setWebSite(final String webSite) {
         this.webSite = webSite;
     }
 }

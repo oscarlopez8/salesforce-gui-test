@@ -12,15 +12,20 @@
 
 package hook;
 
+import core.selenium.util.SalesForceGetProperties;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import salesforce.api.AccountAPI;
 import salesforce.entities.Account;
 import salesforce.entities.Context;
 
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import static core.selenium.util.JSONEntity.getEntityFromJSON;
 
 
 /**
@@ -64,15 +69,9 @@ public class AccountHook {
      * Creates an account before scenario.
      */
     @Before("@create-account")
-    public void beforeScenario() {
-        List<Account> accounts = new ArrayList<>();
-        Map<String, String> createNewAccount;
-
-        for (Account ac : accounts) {
-//            createNewAccount = new HashMap<>();
-//            createNewAccount.put("Name", ac.getAccountName());
-//            account.setId(AccountAPI.getInstance().createAccount(createNewAccount));
-            System.out.println(ac.getAccountName());
-        }
+    public void beforeScenarioWithName() {
+        Map<String, String> createNewAccount = new HashMap<>();
+        createNewAccount.put("Name", "Account_Test");
+        account.setId(AccountAPI.getInstance().createAccount(createNewAccount));
     }
 }
