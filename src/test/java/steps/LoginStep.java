@@ -13,7 +13,7 @@
 package steps;
 
 import cucumber.api.java.en.Given;
-import salesforce.pages.LoginPage;
+import salesforce.ui.pages.LoginPage;
 import salesforce.ui.pages.TransporterPage;
 
 /**

@@ -10,17 +10,28 @@
  * with Jala Foundation.
  */
 
-package salesforce.ui.pages.home;
+package salesforce.ui.pages.app;
 
-import salesforce.ui.pages.BasePage;
+import salesforce.pages.BasePage;
+import salesforce.ui.pages.navbar.NavBar;
 
 /**
- * Home Page class.
+ * Base App PageAbstract class.
  *
  * @author Oscar Lopez.
  * @version 1.0
  */
-public abstract class HomePage extends BasePage {
+public abstract class BaseAppPageAbstract extends BasePage {
 
+    /**
+     * Gets NavBar.
+     *
+     * @return NavBar.
+     */
+    public abstract NavBar getNavBar();
 
+    /**
+     * Clicks on the link to change of layout.
+     */
+    public abstract void clickSwitchLayout();
 }

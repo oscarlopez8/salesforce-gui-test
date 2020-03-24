@@ -10,17 +10,23 @@
  * with Jala Foundation.
  */
 
-package salesforce.ui.pages.home;
+package salesforce.ui.pages.navbar;
 
-import salesforce.ui.pages.BasePage;
+import salesforce.pages.BasePage;
+import salesforce.ui.pages.cases.CasePageAbstract;
 
 /**
- * Home Page class.
+ * Navigation Bar Abstract class.
  *
  * @author Oscar Lopez.
  * @version 1.0
  */
-public abstract class HomePage extends BasePage {
+public abstract class NavBar extends BasePage {
 
-
+    /**
+     * Returns Case page after clicking on contact option.
+     *
+     * @return an Contact page.
+     */
+    public abstract CasePageAbstract goToCasePage();
 }

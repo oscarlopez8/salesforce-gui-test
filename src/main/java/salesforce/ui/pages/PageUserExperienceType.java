@@ -22,9 +22,11 @@ import java.util.Properties;
  * @author Oscar Lopez.
  * @version 1.0
  */
-public class PageUserExperienceType {
+public final class PageUserExperienceType {
 
-    // Path of gradle properties file.
+    /**
+     * Path of gradle properties file.
+     */
     public static final String PATH_OF_GRADLE_PROPERTIES_FILE = "gradle.properties";
 
     /**
@@ -32,7 +34,17 @@ public class PageUserExperienceType {
      */
     private static final String LAYOUT = "layoutpage";
 
+    /**
+     * Constant properties.
+     */
     private static Properties properties;
+
+    /**
+     * Constructor of PageUserExperienceType.
+     */
+    private PageUserExperienceType() {
+
+    }
 
     /**
      * Initializes the page layout config.
