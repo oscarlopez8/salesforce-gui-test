@@ -10,7 +10,7 @@
  * with Jala Foundation.
  */
 
-package salesforce.pages;
+package salesforce.ui.pages;
 
 import core.selenium.WebDriverManager;
 import org.openqa.selenium.WebDriver;

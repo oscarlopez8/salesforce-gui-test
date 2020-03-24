@@ -12,7 +12,7 @@
 
 package salesforce.ui.pages.home;
 
-import salesforce.pages.BasePage;
+import salesforce.ui.pages.BasePage;
 
 /**
  * Home Page class.
