@@ -1,7 +1,7 @@
 Feature: Manage account
   Background:
-    Given I am logged in Salesforce with "username" and "password"
-    And I navigate to the Home page
+    Given I am logged in SalesForce with "username" and "password"
+    And I be on the Homepage
 
   @create-account @delete-account
   Scenario: Customize account page layout
