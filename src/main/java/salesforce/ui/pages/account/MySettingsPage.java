@@ -6,9 +6,9 @@ import org.openqa.selenium.support.ui.Select;
 import salesforce.ui.pages.BasePage;
 
 import java.util.List;
-import java.util.WeakHashMap;
 
 public class MySettingsPage extends BasePage {
+
     @FindBy(id = "DisplayAndLayout_font")
     private WebElement displayAndLayoutButton;
 

@@ -5,7 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import salesforce.ui.pages.BasePage;
 
-public class AccountPage extends BasePage {
+public class AccountClassicPage extends BasePage {
     @FindBy(id = "userNavLabel")
     private WebElement userMenuButton;
 
