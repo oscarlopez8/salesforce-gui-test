@@ -15,10 +15,7 @@ package salesforce.ui.pages;
 import core.selenium.WebDriverManager;
 import core.selenium.util.SalesForceGetProperties;
 import org.openqa.selenium.WebDriver;
-import salesforce.pages.LoginPage;
 import salesforce.ui.pages.home.HomePage;
-
-import java.util.Properties;
 
 /**
  * TransporterPage class provides links to navigate salesforce.com.
@@ -49,7 +46,6 @@ public class TransporterPage {
      * @return a new login page.
      */
     public LoginPage navigateToLoginPage() {
-        Properties props = System.getProperties();
         navigateToURL(SalesForceGetProperties.getInstance().getAppProperties().get("login"));
         return new LoginPage();
     }
@@ -73,6 +69,7 @@ public class TransporterPage {
      * @return a home page according to the page layout.
      */
     public HomePage navigateToHomePage() {
+
         switch (PAGE_LAYOUT_TYPE) {
             case "classic":
                 navigateToURL(SalesForceGetProperties.getInstance().getAppProperties().get("classic-url"));

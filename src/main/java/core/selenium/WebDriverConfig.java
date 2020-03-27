@@ -64,7 +64,6 @@ public final class WebDriverConfig {
      * @return Names of Browser
      */
     public String getBrowser() {
-        //return System.getProperty(BROWSER).toLowerCase();
         return properties.getProperty(BROWSER).toLowerCase();
     }
 

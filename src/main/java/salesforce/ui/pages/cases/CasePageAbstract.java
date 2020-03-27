@@ -12,9 +12,7 @@
 
 package salesforce.ui.pages.cases;
 
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import salesforce.pages.BasePage;
+import salesforce.ui.pages.BasePage;
 
 /**
  * Case Page Abstract class.
@@ -25,11 +23,11 @@ import salesforce.pages.BasePage;
 public abstract class CasePageAbstract extends BasePage {
 
     /**
-     * Returns a web element for verify the detail event is open.
+     * Returns an Case Form page after clicking on new button.
      *
-     * @return an instance web element.
+     * @return an case form page.
      */
-    public abstract WebElement buttonNew();
+    public abstract CaseFormAbstract clickNewBtn();
 
     /**
      * Return the Case page.

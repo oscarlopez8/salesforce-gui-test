@@ -12,7 +12,10 @@
 
 package salesforce.ui.pages.home;
 
-import salesforce.pages.BasePage;
+import core.selenium.util.SalesForceGetProperties;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import salesforce.ui.pages.BasePage;
 
 /**
  * Home Page class.
@@ -22,5 +25,26 @@ import salesforce.pages.BasePage;
  */
 public abstract class HomePage extends BasePage {
 
+    /**
+     * Constructor of Home Page.
+     */
+    public HomePage() {
+        switchToLightning();
+    }
 
+    /**
+     * To switch To Lightning layout.
+     */
+    public void switchToLightning() {
+        String layoutPage = SalesForceGetProperties.getInstance().getAppProperties().get("layoutpage").toLowerCase();
+
+        if (!driver.getCurrentUrl().contains("lightning") && layoutPage.equals("lightning")) {
+            WebElement switchToLightning = driver.findElement(By.cssSelector("a.switch-to-lightning"));
+            switchToLightning.click();
+        } else if (driver.getCurrentUrl().contains("lightning") && layoutPage.equals("classic")) {
+            WebElement switchToClassic = driver.findElement(
+                    By.xpath("//a[@class='profile-link-label switch-to-aloha uiOutputURL']"));
+            switchToClassic.click();
+        }
+    }
 }

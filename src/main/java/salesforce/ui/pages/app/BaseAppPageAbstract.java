@@ -12,7 +12,7 @@
 
 package salesforce.ui.pages.app;
 
-import salesforce.pages.BasePage;
+import salesforce.ui.pages.BasePage;
 import salesforce.ui.pages.navbar.NavBar;
 
 /**

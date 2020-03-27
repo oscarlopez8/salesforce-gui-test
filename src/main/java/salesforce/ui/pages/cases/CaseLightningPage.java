@@ -12,9 +12,6 @@
 
 package salesforce.ui.pages.cases;
 
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
-
 /**
  * Base Case Lightning Page class.
  *
@@ -24,12 +21,12 @@ import org.openqa.selenium.support.FindBy;
 public class CaseLightningPage extends CasePageAbstract {
 
     /**
-     * Returns a web element for verify the detail event is open.
+     * Returns an Case Form page after clicking on new button.
      *
-     * @return an instance web element.
+     * @return an case form page.
      */
     @Override
-    public WebElement buttonNew() {
+    public CaseFormAbstract clickNewBtn() {
         return null;
     }
 

@@ -49,4 +49,5 @@ public class HomePageLightning extends HomePage {
     public void setSetupButton() {
         this.setupButton.click();
     }
+
 }

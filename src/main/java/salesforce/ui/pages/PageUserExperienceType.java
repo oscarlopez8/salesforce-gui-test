@@ -12,7 +12,7 @@
 
 package salesforce.ui.pages;
 
-import core.selenium.util.GetProperties;
+import core.selenium.util.SalesForceGetProperties;
 
 import java.util.Properties;
 
@@ -27,7 +27,7 @@ public final class PageUserExperienceType {
     /**
      * Path of gradle properties file.
      */
-    public static final String PATH_OF_GRADLE_PROPERTIES_FILE = "gradle.properties";
+    public static final String PATH_OF_GRADLE_PROPERTIES_FILE = "salesforce.properties";
 
     /**
      * Constant for the key of layout.
@@ -61,8 +61,6 @@ public final class PageUserExperienceType {
      * @return page layout.
      */
     public static String getPageLayoutName() {
-        properties = GetProperties.getProperties(PATH_OF_GRADLE_PROPERTIES_FILE);
-        //return = System.getProperty(LAYOUT).toUpperCase();
-        return properties.getProperty(LAYOUT).toLowerCase();
+        return SalesForceGetProperties.getInstance().getLayout();
     }
 }

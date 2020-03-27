@@ -35,19 +35,28 @@ public class CaseClassicPage extends CasePageAbstract {
      *
      * @return an instance web element.
      */
+
+
+    /**
+     * Returns an Case Form page after clicking on new button.
+     *
+     * @return an case form page.
+     */
     @Override
-    public WebElement buttonNew() {
-        return null;
+    public CaseFormAbstract clickNewBtn() {
+        newCaseBtn.click();
+        return new CaseClassicForm();
     }
 
     /**
      * Return the Case page.
      *
-     * @return an instance eventPageAbstract.
+     * @return an instance casePageAbstract.
      */
     @Override
     public CasePageAbstract getCasePage() {
-        return null;
+        newCaseBtn.click();
+        return new CaseClassicPage();
     }
 
     /**

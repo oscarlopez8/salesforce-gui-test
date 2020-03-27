@@ -14,20 +14,20 @@ package hook;
 
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
-import salesforce.api.AccountAPI;
-import salesforce.entities.Account;
+import salesforce.api.OpportunityAPI;
 import salesforce.entities.Context;
+import salesforce.entities.Opportunity;
 
 import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Account hook class.
+ * Opportunity Hook class.
  *
  * @author Oscar Lopez.
  * @version 1.0
  */
-public class AccountHook {
+public class OpportunityHook {
 
     /**
      * Variable for the context.
@@ -35,35 +35,37 @@ public class AccountHook {
     private Context context;
 
     /**
-     * Variable for account.
+     * Variable for Opportunity.
      */
-    private Account account;
+    private Opportunity opportunity;
 
     /**
      * Account hooks constructor sending the context.
      *
      * @param context init the context.
      */
-    public AccountHook(final Context context) {
+    public OpportunityHook(final Context context) {
         this.context = context;
-        account = context.getAccount();
+        opportunity = context.getOpportunity();
     }
 
     /**
-     * Deletes an account by id.
+     * Deletes an Opportunity by id.
      */
-    @After("@delete-account")
+    @After("@delete-opportunity")
     public void afterScenario() {
-        AccountAPI.getInstance().deleteAccount(account.getId());
+        OpportunityAPI.getInstance().deleteOpportunity(opportunity.getId());
     }
 
     /**
-     * Creates an account before scenario.
+     * Creates an opportunity before scenario.
      */
-    @Before("@create-account")
+    @Before("@create-opportunity")
     public void beforeScenarioWithName() {
-        Map<String, String> createNewAccount = new HashMap<>();
-        createNewAccount.put("Name", "Account_Test");
-        account.setId(AccountAPI.getInstance().createAccount(createNewAccount));
+        Map<String, String> createOpportunity = new HashMap<>();
+        createOpportunity.put("Name", "New opportunity name");
+        createOpportunity.put("StageName", "Prospecting");
+        createOpportunity.put("CloseDate", "2020-04-15");
+        opportunity.setId(OpportunityAPI.getInstance().createOpportunity(createOpportunity));
     }
 }

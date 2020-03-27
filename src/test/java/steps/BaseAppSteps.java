@@ -36,7 +36,7 @@ public class BaseAppSteps {
     private BaseAppPageAbstract baseAppPage;
 
     /**
-     * Opens the contacts page.
+     * Opens the case page.
      */
     @When("I open the Case page")
     public void goToCasePage() {

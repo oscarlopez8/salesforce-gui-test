@@ -36,9 +36,14 @@ public class EndPoints {
     public static final String CONTACT_ENDPOINT = "/Contact";
 
     /**
-     * Endpoint of Account.
+     * Endpoint of Case.
      */
     public static final String CASE_ENDPOINT = "/Case";
+
+    /**
+     * Endpoint of Account.
+     */
+    public static final String OPPORTUNITY_ENDPOINT = "/Opportunity";
 
     /**
      * Constructor EndPoints.

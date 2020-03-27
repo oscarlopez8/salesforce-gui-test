@@ -67,6 +67,6 @@ public class BaseAppLightningPage extends BaseAppPageAbstract {
      */
     @Override
     protected void waitUntilPageObjectIsLoaded() {
-        wait.until(ExpectedConditions.visibilityOf(basePageHeader));
+        wait.until(ExpectedConditions.visibilityOf(viewProfileBtn));
     }
 }
