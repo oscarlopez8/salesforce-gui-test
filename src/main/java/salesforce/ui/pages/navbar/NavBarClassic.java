@@ -56,11 +56,11 @@ public class NavBarClassic extends NavBar {
         allMenusTab.click();
     }
 
+    /**
+     * Public method to call the click function.
+     */
     public void clickAllTab() {
-        clickAllMenuTAb();
-    }
-
-    private void clickAllMenuTAb() {
+        clickAllMenuTab();
     }
 
     /**
