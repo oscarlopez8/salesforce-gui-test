@@ -12,6 +12,7 @@
 
 package salesforce.ui.pages.home;
 
+
 import core.selenium.util.SalesForceGetProperties;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
