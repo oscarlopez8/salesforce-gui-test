@@ -13,8 +13,7 @@
 package salesforce.ui.pages.cases;
 
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import salesforce.pages.BasePage;
+import salesforce.ui.pages.BasePage;
 
 /**
  * Case Page Abstract class.
