@@ -3,19 +3,18 @@ package steps;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import org.codehaus.groovy.runtime.StringGroovyMethods;
 import org.testng.Assert;
 import salesforce.ui.pages.ShowAllTabsPage;
-import salesforce.ui.pages.account.AccountPage;
+import salesforce.ui.pages.account.AccountClassicPage;
 import salesforce.ui.pages.account.MySettingsPage;
 import salesforce.ui.pages.navbar.NavBarClassic;
 
 public class AccountSteps {
     @When("I go to My Settings page")
     public void iGoToMySettingsPage() {
-        AccountPage accountPage = new AccountPage();
-        accountPage.clickUserMenuButton();
-        accountPage.clickMySettingsButton();
+        AccountClassicPage accountClassicPage = new AccountClassicPage();
+        accountClassicPage.clickUserMenuButton();
+        accountClassicPage.clickMySettingsButton();
     }
 
     @And("I select the Account page to Customize it")
@@ -38,17 +37,17 @@ public class AccountSteps {
     @And("I go to the Account page")
     public void iGoToTheAccountPage() {
         NavBarClassic navBarClassic = new NavBarClassic();
-        navBarClassic.clickAllMenuTab();
+        navBarClassic.clickAllTab();
 
         ShowAllTabsPage showAllTabsPage = new ShowAllTabsPage();
-        showAllTabsPage.clickAccountBlock();
+        showAllTabsPage.clickAccountsBlock();
     }
 
     @Then("Check the account page to make sure the item appears first")
     public void checkTheAccountPageToMakeSureTheItemAppearsFirst() {
-        AccountPage accountPage = new AccountPage();
-        accountPage.clickAccount();
-        String actual = accountPage.containFirstRelatedList();
+        AccountClassicPage accountClassicPage = new AccountClassicPage();
+        accountClassicPage.clickAccount();
+        String actual = accountClassicPage.containFirstRelatedList();
         Assert.assertEquals(actual,"Case");
     }
 }

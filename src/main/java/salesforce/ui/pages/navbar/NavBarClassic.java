@@ -52,8 +52,15 @@ public class NavBarClassic extends NavBar {
     /**
      * Clicks in Case menu button.
      */
-    public void clickAllMenuTab() {
+    private void clickAllMenuTab() {
         allMenusTab.click();
+    }
+
+    public void clickAllTab() {
+        clickAllMenuTAb();
+    }
+
+    private void clickAllMenuTAb() {
     }
 
     /**
