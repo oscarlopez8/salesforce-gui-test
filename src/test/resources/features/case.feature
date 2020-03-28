@@ -6,14 +6,14 @@ Feature: Case
 
   Scenario: Follow a Case
     When I open the Case page
-      And I open the Case form from Cases page
-      And I create a new Case with the following information
-        | Status       | John Doe Industries |
-        | Priority     | Medium              |
-        | Origin       | Phone               |
-        | Contact Name | Contact Name        |
-        | Account Name | Account Name        |
-        | Reason       | Installation        |
+    And I open the Case form from Cases page
+    And I create a new Case with the following information
+      | Status       | New          |
+      | Priority     | Medium       |
+      | Origin       | Phone        |
+      | Contact Name | Contact Name |
+      | Account Name | Account Name |
+      | Reason       | Installation |
     Then The Case name should be displayed in the Case page
     When I create Question for the Case
     And I Change the status to Working

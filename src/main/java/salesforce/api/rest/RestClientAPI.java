@@ -109,7 +109,10 @@ public final class RestClientAPI {
      */
     public Response post(final String endpoint, final Map<String, String> valuesForTheBody) {
         url = urlAPI.concat(endpoint);
+
         response = request.body(valuesForTheBody).when().post(url);
+        int status = response.statusCode();
+        System.out.println(status);
         return response;
     }
 

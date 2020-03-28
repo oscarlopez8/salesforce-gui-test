@@ -36,12 +36,18 @@ public class Context {
     private Case cases;
 
     /**
+     * Opportunity to manage in the context.
+     */
+    private Opportunity opportunity;
+
+    /**
      * Constructor of Context.
      */
     public Context() {
         this.account = new Account();
         this.contact = new Contact();
         this.cases = new Case();
+        this.opportunity = new Opportunity();
     }
 
     /**
@@ -69,5 +75,14 @@ public class Context {
      */
     public Case getCases() {
         return cases;
+    }
+
+    /**
+     * Returns the Opportunity of context.
+     *
+     * @return Opportunity.
+     */
+    public Opportunity getOpportunity() {
+        return opportunity;
     }
 }

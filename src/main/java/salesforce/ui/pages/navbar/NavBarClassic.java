@@ -17,6 +17,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import salesforce.ui.pages.cases.CaseClassicPage;
 import salesforce.ui.pages.cases.CasePageAbstract;
+import salesforce.ui.pages.opportunity.OpportunityClassicPage;
+import salesforce.ui.pages.opportunity.OpportunityPageAbstract;
 
 /**
  * Nav Bar Classic class.
@@ -49,6 +51,20 @@ public class NavBarClassic extends NavBar {
      */
     @FindBy(css = "a[class='listRelatedObject caseBlock title']")
     private WebElement caseOption;
+
+    /**
+     * Web element of Opportunity Option.
+     */
+    @FindBy(id = "Opportunity_Tab")
+    private WebElement opportunityMenu;
+
+    /**
+     * Clicks in Case menu button.
+     */
+    private void clickOpportunityTab() {
+        opportunityMenu.click();
+    }
+
     /**
      * Clicks in Case menu button.
      */
@@ -80,6 +96,17 @@ public class NavBarClassic extends NavBar {
         clickAllMenuTab();
         clickCaseOption();
         return new CaseClassicPage();
+    }
+
+    /**
+     * Returns Opportinuty page after clicking on contact option.
+     *
+     * @return an Opportinuty page.
+     */
+    @Override
+    public OpportunityPageAbstract goToOpportunityPage() {
+        clickOpportunityTab();
+        return new OpportunityClassicPage();
     }
 
     /**

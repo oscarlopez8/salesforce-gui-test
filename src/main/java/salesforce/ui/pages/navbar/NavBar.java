@@ -14,6 +14,7 @@ package salesforce.ui.pages.navbar;
 
 import salesforce.ui.pages.BasePage;
 import salesforce.ui.pages.cases.CasePageAbstract;
+import salesforce.ui.pages.opportunity.OpportunityPageAbstract;
 
 /**
  * Navigation Bar Abstract class.
@@ -26,7 +27,14 @@ public abstract class NavBar extends BasePage {
     /**
      * Returns Case page after clicking on contact option.
      *
-     * @return an Contact page.
+     * @return an Case page.
      */
     public abstract CasePageAbstract goToCasePage();
+
+    /**
+     * Returns Opportinuty page after clicking on contact option.
+     *
+     * @return an Opportinuty page.
+     */
+    public abstract OpportunityPageAbstract goToOpportunityPage();
 }

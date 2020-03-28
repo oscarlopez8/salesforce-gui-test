@@ -145,4 +145,6 @@ public class Case {
     public void setOrigin(final String origin) {
         this.origin = origin;
     }
+
+
 }

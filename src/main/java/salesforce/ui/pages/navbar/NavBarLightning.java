@@ -15,9 +15,10 @@ package salesforce.ui.pages.navbar;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import salesforce.ui.pages.cases.CaseClassicPage;
 import salesforce.ui.pages.cases.CaseLightningPage;
 import salesforce.ui.pages.cases.CasePageAbstract;
+import salesforce.ui.pages.opportunity.OpportunityLightningPage;
+import salesforce.ui.pages.opportunity.OpportunityPageAbstract;
 
 /**
  * Nav Bar Lightning class.
@@ -30,7 +31,7 @@ public class NavBarLightning extends NavBar {
     /**
      * Web element of allMenusTab.
      */
-    @FindBy(css = "li[id='AllTab_Tab']")
+    @FindBy(css = "#oneHeader>div.bBottom>one-appnav>div>div>div>nav>one-app-launcher-header>button>div")
     private WebElement allMenusTab;
 
     /**
@@ -79,10 +80,20 @@ public class NavBarLightning extends NavBar {
     }
 
     /**
+     * Returns Opportinuty page after clicking on contact option.
+     *
+     * @return an Opportinuty page.
+     */
+    @Override
+    public OpportunityPageAbstract goToOpportunityPage() {
+        return new OpportunityLightningPage();
+    }
+
+    /**
      * Waits until a webElement is loaded.
      */
     @Override
     protected void waitUntilPageObjectIsLoaded() {
-       wait.until(ExpectedConditions.visibilityOf(caseOption));
+       wait.until(ExpectedConditions.visibilityOf(allMenusTab));
     }
 }

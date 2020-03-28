@@ -43,6 +43,13 @@ public class HomePageClassic extends HomePage {
     private WebElement setupButton;
 
     /**
+     * Contructor to java page.
+     */
+    public HomePageClassic() {
+        switchToLightning();
+    }
+
+    /**
      * Waits until a webElement is loaded.
      */
     @Override

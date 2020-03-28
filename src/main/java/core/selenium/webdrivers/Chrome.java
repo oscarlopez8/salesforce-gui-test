@@ -42,6 +42,7 @@ public class Chrome implements IDriver {
         //Boolean which specifies whether we should ask the user if we should download a file (true) or just download it
         //automatically.
         chromePrefs.put("download.prompt_for_download", "false");
+        chromePrefs.put("profile.default_content_setting_values.notifications", 2);
         //This configuration allows to download multiples files
         chromePrefs.put("profile.content_settings.exceptions.automatic_downloads.*.setting", 1);
 

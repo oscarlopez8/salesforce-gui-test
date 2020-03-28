@@ -12,6 +12,9 @@
 
 package salesforce.entities;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Account class.
  *
@@ -44,6 +47,27 @@ public class Account {
      * Variable for the phone.
      */
     private String webSite;
+
+    /**
+     * Constant for key of account name.
+     */
+    public static final String NAME_ACCOUNT = "name";
+
+    /**
+     * Constant for key of account number.
+     */
+    public static final String ACCOUNT_NUMBER = "accountNumber";
+
+    /**
+     * Constant for key of account phone.
+     */
+    public static final String ACCOUNT_PHONE = "phone";
+
+    /**
+     * Constant for key of account website.
+     */
+    public static final String ACCOUNT_WEBSITE = "webSite";
+
 
     /**
      * Returns the id of the account.
@@ -130,5 +154,30 @@ public class Account {
      */
     public void setWebSite(final String webSite) {
         this.webSite = webSite;
+    }
+
+    /**
+     * Returns a map with the information the account.
+     *
+     * @param accountMap to set the information.
+     * @return strategyMap with the information of account.
+     */
+    private HashMap<String, Runnable> composeStrategyMap(final Map<String, String> accountMap) {
+        HashMap<String, Runnable> strategyMap = new HashMap<>();
+        strategyMap.put(NAME_ACCOUNT, () -> setAccountName(accountMap.get(NAME_ACCOUNT)));
+        strategyMap.put(ACCOUNT_NUMBER, () -> setAccountNumber(accountMap.get(ACCOUNT_NUMBER)));
+        strategyMap.put(ACCOUNT_PHONE, () -> setPhone(accountMap.get(ACCOUNT_PHONE)));
+        strategyMap.put(ACCOUNT_WEBSITE, () -> setWebSite(accountMap.get(ACCOUNT_WEBSITE)));
+        return strategyMap;
+    }
+
+    /**
+     * Sets the values of an Account sending a map with the information to set.
+     *
+     * @param accountMap to set the information.
+     */
+    public void setAccountInformation(final Map<String, String> accountMap) {
+        HashMap<String, Runnable> strategyMap = composeStrategyMap(accountMap);
+        accountMap.keySet().forEach(key -> strategyMap.get(key).run());
     }
 }

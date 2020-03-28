@@ -17,16 +17,16 @@ import salesforce.api.rest.RestClientAPI;
 
 import java.util.Map;
 
-import static salesforce.api.EndPoints.CASE_ENDPOINT;
+import static salesforce.api.EndPoints.OPPORTUNITY_ENDPOINT;
 import static salesforce.api.EndPoints.SLASH;
 
 /**
- * CaseAPI class to information of Case.
+ * OpportunityAPI class to information of Opportunity.
  *
  * @author Oscar Lopez.
  * @version 1.0
  */
-public class CaseAPI {
+public class OpportunityAPI {
 
     /**
      * Variable for the rest client.
@@ -44,40 +44,41 @@ public class CaseAPI {
     private String finalEndpoint;
 
     /**
-     * Constructor of CaseAPI.
+     * Constructor of OpportunityAPI.
      */
-    protected CaseAPI() {
+    protected OpportunityAPI() {
         restClient = RestClientAPI.getInstance();
     }
 
     /**
-     * Returns the instance the case API.
+     * Returns the instance the Opportunity API.
      *
-     * @return a case API.
+     * @return a opportunity API.
      */
-    public static CaseAPI getInstance() {
-        return new CaseAPI();
+    public static OpportunityAPI getInstance() {
+        return new OpportunityAPI();
     }
 
     /**
-     * Creates an case.
+     * Creates an opportunity.
      *
-     * @param newCase to sent the body of the request.
-     * @return the id of case created.
+     * @param newOpportunity to sent the body of the request.
+     * @return the id of account created.
      */
-    public String createCase(final Map<String, String> newCase) {
-        finalEndpoint = CASE_ENDPOINT;
-        response = restClient.post(finalEndpoint, newCase);
+    public String createOpportunity(final Map<String, String> newOpportunity) {
+        finalEndpoint = OPPORTUNITY_ENDPOINT;
+        newOpportunity.forEach((k, v) -> System.out.println("Key: " + k + ": Value: " + v));
+        response = restClient.post(finalEndpoint, newOpportunity);
         return response.body().jsonPath().getString("id");
     }
 
     /**
-     * Deletes a Case by id.
+     * Deletes a Opportunity by id.
      *
-     * @param caseId to concat with the base endpoint.
+     * @param opportunityId to concat with the base endpoint.
      */
-    public void deleteCase(final String caseId) {
-        finalEndpoint = CASE_ENDPOINT.concat(SLASH.concat(caseId));
+    public void deleteOpportunity(final String opportunityId) {
+        finalEndpoint = OPPORTUNITY_ENDPOINT.concat(SLASH.concat(opportunityId));
         response = restClient.delete(finalEndpoint);
     }
 }

@@ -16,10 +16,16 @@ import salesforce.ui.pages.app.BaseAppClassicPage;
 import salesforce.ui.pages.app.BaseAppLightningPage;
 import salesforce.ui.pages.app.BaseAppPageAbstract;
 import salesforce.ui.pages.cases.CaseClassicPage;
+import salesforce.ui.pages.cases.CaseFormAbstract;
+import salesforce.ui.pages.cases.CaseLightningPage;
 import salesforce.ui.pages.cases.CasePageAbstract;
+import salesforce.ui.pages.cases.CaseClassicForm;
 import salesforce.ui.pages.home.HomePage;
 import salesforce.ui.pages.home.HomePageClassic;
 import salesforce.ui.pages.home.HomePageLightning;
+import salesforce.ui.pages.opportunity.OpportunityClassicPage;
+import salesforce.ui.pages.opportunity.OpportunityLightningPage;
+import salesforce.ui.pages.opportunity.OpportunityPageAbstract;
 
 /**
  * App Page Factory class.
@@ -30,14 +36,14 @@ import salesforce.ui.pages.home.HomePageLightning;
 public class AppPageFactory {
 
     /**
+     * Constant for the classic layout.
+     */
+    private static final String PAGE_CLASSIC = "classic";
+
+    /**
      * Constant for the page layout type.
      */
     private static final String PAGE_LAYOUT_TYPE = PageUserExperienceType.getPageLayoutName();
-
-    /**
-     * Constant for the message of exception.
-     */
-    public static final String MESSAGE_FOR_UNKNOWN_LAYOUT = "Unknown layout type";
 
     /**
      * Constructor of App Page Factory.
@@ -50,18 +56,10 @@ public class AppPageFactory {
      * @return a home page.
      */
     public static HomePage getHomePageManager() {
-        final HomePage homePage;
-        switch (PAGE_LAYOUT_TYPE) {
-            case "classic":
-                homePage = new HomePageClassic();
-                break;
-            case "lightning":
-                homePage = new HomePageLightning();
-                break;
-            default:
-                throw new RuntimeException(MESSAGE_FOR_UNKNOWN_LAYOUT);
+        if (PAGE_LAYOUT_TYPE.equals(PAGE_CLASSIC)) {
+            return new HomePageClassic();
         }
-        return homePage;
+        return new HomePageLightning();
     }
 
     /**
@@ -70,18 +68,11 @@ public class AppPageFactory {
      * @return a base app page.
      */
     public static BaseAppPageAbstract getBaseAppPage() {
-        final BaseAppPageAbstract baseAppPage;
-        switch (PAGE_LAYOUT_TYPE) {
-            case "classic":
-                baseAppPage = new BaseAppClassicPage();
-                break;
-            case "lightning":
-                baseAppPage = new BaseAppLightningPage();
-                break;
-            default:
-                throw new RuntimeException(MESSAGE_FOR_UNKNOWN_LAYOUT);
+
+        if (PAGE_LAYOUT_TYPE.equals(PAGE_CLASSIC)) {
+            return  new BaseAppClassicPage();
         }
-        return baseAppPage;
+        return new BaseAppLightningPage();
     }
 
     /**
@@ -90,17 +81,36 @@ public class AppPageFactory {
      * @return a case page.
      */
     public static CasePageAbstract getCasePage() {
-        final CasePageAbstract casePage;
-        switch (PAGE_LAYOUT_TYPE) {
-            case "classic":
-                casePage = new CaseClassicPage();
-                break;
-            case "lightning":
-                casePage = new CaseClassicPage();
-                break;
-            default:
-                throw new RuntimeException(MESSAGE_FOR_UNKNOWN_LAYOUT);
+
+        if (PAGE_LAYOUT_TYPE.equals(PAGE_CLASSIC)) {
+            return  new CaseClassicPage();
         }
-        return casePage;
+        return new CaseLightningPage();
+    }
+
+    /**
+     * Returns the case form page according the page layout.
+     *
+     * @return a case form page.
+     */
+    public static CaseFormAbstract getCaseFormPage() {
+
+        if (PAGE_LAYOUT_TYPE.equals(PAGE_CLASSIC)) {
+            return  new CaseClassicForm();
+        }
+        return new CaseClassicForm();
+    }
+
+    /**
+     * Returns the Opportunity page according the page layout.
+     *
+     * @return a Opportunity page.
+     */
+    public static OpportunityPageAbstract getOpportunityPage() {
+
+        if (PAGE_LAYOUT_TYPE.equals(PAGE_CLASSIC)) {
+            return  new OpportunityClassicPage();
+        }
+        return new OpportunityLightningPage();
     }
 }

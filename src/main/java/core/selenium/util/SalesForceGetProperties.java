@@ -50,6 +50,11 @@ public class SalesForceGetProperties {
     public static final String URL_API = "urlAPI";
 
     /**
+     * Constant for the key url.
+     */
+    public static final String LAYOUT = "layoutpage";
+
+    /**
      * Map to save the properties of the application.
      */
     private Map<String, String> applicationProperties;
@@ -116,11 +121,11 @@ public class SalesForceGetProperties {
     }
 
     /**
-     * Returns the Json Account from the properties file.
+     * Returns the Layout from the properties file.
      *
-     * @return the content type as string.
+     * @return the Layout as string.
      */
-    public String getJsonAccount() {
-        return getAppProperties().get(JSON_ACCOUNT);
+    public String getLayout() {
+        return getAppProperties().get(LAYOUT);
     }
 }
