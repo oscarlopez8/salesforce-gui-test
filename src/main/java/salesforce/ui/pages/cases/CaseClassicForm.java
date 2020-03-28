@@ -12,6 +12,10 @@
 
 package salesforce.ui.pages.cases;
 
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+
 /**
  * Case Classic Form Page class.
  *
@@ -19,6 +23,12 @@ package salesforce.ui.pages.cases;
  * @version 1.0
  */
 public class CaseClassicForm extends CaseFormAbstract {
+
+    /**
+     * Button Save.
+     */
+    @FindBy(css = "#topButtonRow input[name='save']")
+    private WebElement saveButton;
 
     /**
      * Return the Case page.
@@ -95,6 +105,6 @@ public class CaseClassicForm extends CaseFormAbstract {
      */
     @Override
     protected void waitUntilPageObjectIsLoaded() {
-
+        wait.until(ExpectedConditions.visibilityOf(saveButton));
     }
 }

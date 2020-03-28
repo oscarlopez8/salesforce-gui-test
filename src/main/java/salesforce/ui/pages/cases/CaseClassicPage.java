@@ -31,13 +31,6 @@ public class CaseClassicPage extends CasePageAbstract {
     private WebElement newCaseBtn;
 
     /**
-     * Returns a web element for verify the detail event is open.
-     *
-     * @return an instance web element.
-     */
-
-
-    /**
      * Returns an Case Form page after clicking on new button.
      *
      * @return an case form page.

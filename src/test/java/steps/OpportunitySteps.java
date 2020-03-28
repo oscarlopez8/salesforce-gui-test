@@ -60,7 +60,7 @@ public class OpportunitySteps {
     private OpportunityPageAbstract opportunityPage;
 
     /**
-     *
+     * App Base Abstract Page Class.
      */
     private BaseAppPageAbstract baseAppPage;
 

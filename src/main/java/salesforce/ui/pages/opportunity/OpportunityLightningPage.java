@@ -58,7 +58,6 @@ public class OpportunityLightningPage extends OpportunityPageAbstract {
     @FindBy(css = "span[class='pillText']")
     private WebElement pillNameAccount;
 
-
     /**
      * Returns an Opportunity Abstract Page after clicking on menu button.
      *
@@ -102,6 +101,9 @@ public class OpportunityLightningPage extends OpportunityPageAbstract {
         return pillNameAccount.getText().trim();
     }
 
+    /**
+     * Go to form Abstract Page.
+     */
     @Override
     public void goToFormPageAbstract() {
         wait.until(ExpectedConditions.visibilityOf(inputAccountName));

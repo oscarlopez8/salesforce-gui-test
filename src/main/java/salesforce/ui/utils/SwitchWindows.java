@@ -18,7 +18,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import java.util.Set;
 
 /**
- * Switch hWindows.
+ * Switch Windows.
  *
  * @author Alan Escalera.
  * @version 1.0

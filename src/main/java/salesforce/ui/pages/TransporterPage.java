@@ -69,7 +69,6 @@ public class TransporterPage {
      * @return a home page according to the page layout.
      */
     public HomePage navigateToHomePage() {
-
         switch (PAGE_LAYOUT_TYPE) {
             case "classic":
                 navigateToURL(SalesForceGetProperties.getInstance().getAppProperties().get("classic-url"));

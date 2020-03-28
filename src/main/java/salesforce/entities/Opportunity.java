@@ -177,7 +177,7 @@ public class Opportunity {
      *
      * @param amount for the Opportunity.
      */
-    public void setAmount(final String amount) {
+    public void setAmount(final String opportunityAmount) {
         this.amount = amount;
     }
 
