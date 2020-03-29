@@ -15,6 +15,7 @@ package salesforce.api.rest;
 import core.selenium.util.SalesForceGetProperties;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
+import salesforce.ui.utils.TokenGenerator;
 
 import java.util.Map;
 
@@ -65,6 +66,11 @@ public final class RestClientAPI {
     private static RestClientAPI instance;
 
     /**
+     * Variable for  initialize base api.
+     */
+    private static TokenGenerator tokenGenerator;
+
+    /**
      * Constructor of base API.
      */
     private RestClientAPI() {
@@ -88,8 +94,9 @@ public final class RestClientAPI {
      * Initializes the setting for the API.
      */
     private void initialize() {
+        tokenGenerator = new TokenGenerator();
         urlAPI = SalesForceGetProperties.getInstance().getUrlApi();
-        accessToken = SalesForceGetProperties.getInstance().getAccessToken();
+        accessToken = tokenGenerator.setToken();
         contentType = SalesForceGetProperties.getInstance().getContentType();
     }
 
@@ -111,8 +118,6 @@ public final class RestClientAPI {
         url = urlAPI.concat(endpoint);
 
         response = request.body(valuesForTheBody).when().post(url);
-        int status = response.statusCode();
-        System.out.println(status);
         return response;
     }
 

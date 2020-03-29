@@ -31,4 +31,12 @@ public final class Constants {
     public static final String URL_SALES_FORCE_LIGHTNING = "https://na111.lightning.force.com/lightning/";
     public static final String URI_OPPORTUNITY = "r/Opportunity/";
     public static final String URI_OPPORTUNITY_PART_TWO = "/view?0.source=alohaHeader";
+
+    public static final String USER_NAME = "username";
+    public static final String PASSWORD = "password";
+    public static final String GRANT_TYPE = "grant_type";
+    public static final String CLIENT_ID = "client_id";
+    public static final String CLIENT_SECRET = "client_secret";
+    public static final String FIRST_TOKEN = "first-token";
+    public static final String ACCESS_TOKEN = "access_token";
 }

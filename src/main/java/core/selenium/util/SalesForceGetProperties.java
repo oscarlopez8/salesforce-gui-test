@@ -30,6 +30,11 @@ public class SalesForceGetProperties {
     private static final String SALESFORCE_PROPERTIES = "salesforce.properties";
 
     /**
+     * Constant for the key Login.
+     */
+    public static final String LOGIN = "login";
+
+    /**
      * Constant for the key content type.
      */
     public static final String CONTENT_TYPE = "Content-Type";
@@ -100,6 +105,15 @@ public class SalesForceGetProperties {
      */
     public String getAccessToken() {
         return getAppProperties().get(TOKEN);
+    }
+
+    /**
+     * Returns the token from the properties file.
+     *
+     * @return the token as string.
+     */
+    public String getAccessLogin() {
+        return getAppProperties().get(LOGIN);
     }
 
     /**
