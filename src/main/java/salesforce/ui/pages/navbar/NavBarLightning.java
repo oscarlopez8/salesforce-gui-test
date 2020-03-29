@@ -94,6 +94,6 @@ public class NavBarLightning extends NavBar {
      */
     @Override
     protected void waitUntilPageObjectIsLoaded() {
-       wait.until(ExpectedConditions.visibilityOf(allMenusTab));
+       //wait.until(ExpectedConditions.visibilityOf(allMenusTab));
     }
 }

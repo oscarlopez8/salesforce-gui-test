@@ -117,6 +117,6 @@ public class OpportunityLightningPage extends OpportunityPageAbstract {
      */
     @Override
     protected void waitUntilPageObjectIsLoaded() {
-        wait.until(ExpectedConditions.visibilityOf(inputAccountName));
+        //wait.until(ExpectedConditions.visibilityOf(inputAccountName));
     }
 }

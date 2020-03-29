@@ -26,10 +26,13 @@ import salesforce.ui.pages.navbar.NavBarLightning;
  */
 public class BaseAppLightningPage extends BaseAppPageAbstract {
 
+    @FindBy(css = "div.slds-icon-waffle")
+    WebElement menuWaffle;
+
     /**
      * Locator for switch Page link.
      */
-    @FindBy(id = "[data-aura-class='oneUserProfileCardTrigger'] [data-aura-class='uiTooltip']")
+    @FindBy(css = "[data-aura-class='oneUserProfileCardTrigger'] [data-aura-class='uiTooltip']")
     private WebElement viewProfileBtn;
 
     /**
@@ -67,6 +70,6 @@ public class BaseAppLightningPage extends BaseAppPageAbstract {
      */
     @Override
     protected void waitUntilPageObjectIsLoaded() {
-        wait.until(ExpectedConditions.visibilityOf(viewProfileBtn));
+        //wait.until(ExpectedConditions.visibilityOf(menuWaffle));
     }
 }
