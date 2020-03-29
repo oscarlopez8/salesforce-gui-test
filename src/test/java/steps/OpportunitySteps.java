@@ -23,6 +23,7 @@ import salesforce.ui.pages.AppPageFactory;
 import salesforce.ui.pages.TransporterPage;
 import salesforce.ui.pages.app.BaseAppPageAbstract;
 import salesforce.ui.pages.opportunity.OpportunityPageAbstract;
+import salesforce.ui.utils.TokenGenerator;
 
 import java.util.Map;
 
@@ -53,6 +54,8 @@ public class OpportunitySteps {
      * Variable for the context.
      */
     private Context context;
+
+    private TokenGenerator tokenAPI;
 
     /**
      * Variable for the Opportunity Abstract page.

@@ -46,6 +46,11 @@ public class EndPoints {
     public static final String OPPORTUNITY_ENDPOINT = "/Opportunity";
 
     /**
+     * Endpoint of Account.
+     */
+    public static final String TOKEN_ENDPOINT = "services/oauth2/token";
+
+    /**
      * Constructor EndPoints.
      */
     protected EndPoints() { }
