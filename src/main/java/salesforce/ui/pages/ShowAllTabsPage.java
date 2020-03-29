@@ -42,6 +42,6 @@ public class ShowAllTabsPage extends BasePage {
      */
     @Override
     protected void waitUntilPageObjectIsLoaded() {
-        wait.until(ExpectedConditions.elementToBeClickable(accountsBlock));
+//        wait.until(ExpectedConditions.elementToBeClickable(accountsBlock));
     }
 }

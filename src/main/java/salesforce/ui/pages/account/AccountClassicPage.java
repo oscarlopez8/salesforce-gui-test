@@ -84,6 +84,6 @@ public class AccountClassicPage extends BasePage {
      */
     @Override
     protected void waitUntilPageObjectIsLoaded() {
-        wait.until(ExpectedConditions.invisibilityOf(firstRelatedList));
+        //wait.until(ExpectedConditions.invisibilityOf(firstRelatedList));
     }
 }

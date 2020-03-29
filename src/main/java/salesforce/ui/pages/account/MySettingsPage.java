@@ -147,6 +147,6 @@ public class MySettingsPage extends BasePage {
      */
     @Override
     protected void waitUntilPageObjectIsLoaded() {
-        wait.until(ExpectedConditions.elementToBeClickable(saveButton));
+        //wait.until(ExpectedConditions.elementToBeClickable(saveButton));
     }
 }
