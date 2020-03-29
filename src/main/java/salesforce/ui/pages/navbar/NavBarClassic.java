@@ -17,6 +17,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import salesforce.ui.pages.cases.CaseClassicPage;
 import salesforce.ui.pages.cases.CasePageAbstract;
+import salesforce.ui.pages.event.EventPageAbstract;
 import salesforce.ui.pages.opportunity.OpportunityClassicPage;
 import salesforce.ui.pages.opportunity.OpportunityPageAbstract;
 
@@ -107,6 +108,16 @@ public class NavBarClassic extends NavBar {
     public OpportunityPageAbstract goToOpportunityPage() {
         clickOpportunityTab();
         return new OpportunityClassicPage();
+    }
+
+    /**
+     * Returns Event page after clicking the option.
+     *
+     * @return an Event page.
+     */
+    @Override
+    public EventPageAbstract goToEventPage() {
+        return null;
     }
 
     /**

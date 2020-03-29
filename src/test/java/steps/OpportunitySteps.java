@@ -18,6 +18,7 @@ import io.restassured.response.Response;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import salesforce.api.AccountAPI;
+import salesforce.entities.Account;
 import salesforce.entities.Context;
 import salesforce.ui.pages.AppPageFactory;
 import salesforce.ui.pages.TransporterPage;
@@ -41,11 +42,6 @@ public class OpportunitySteps {
     private WebDriver driver;
 
     /**
-     * Variable for the Transporter Page.
-     */
-    private TransporterPage transporterPage;
-
-    /**
      * Variable for the response of request to API.
      */
     private Response response;
@@ -55,7 +51,10 @@ public class OpportunitySteps {
      */
     private Context context;
 
-    private TokenGenerator tokenAPI;
+    /**
+     * Variable Account.
+     */
+    private Account account;
 
     /**
      * Variable for the Opportunity Abstract page.
@@ -110,8 +109,12 @@ public class OpportunitySteps {
      */
     @Then("The account name should be displayed in the Account Name input Text")
     public void theAccountNameShouldBeDisplayedInTheAccountNameInputText() {
-        String expectedResult = "John Doe Test";
+        String expectedResult = context.getAccount().getAccountName();
         System.out.println(opportunityPage.getAccountName());
         Assert.assertEquals(opportunityPage.getAccountName(), expectedResult);
+    }
+
+    @When("I open the New Event form")
+    public void openTheNewEventForm() {
     }
 }

@@ -17,6 +17,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import salesforce.ui.pages.cases.CaseLightningPage;
 import salesforce.ui.pages.cases.CasePageAbstract;
+import salesforce.ui.pages.event.EventPageAbstract;
 import salesforce.ui.pages.opportunity.OpportunityLightningPage;
 import salesforce.ui.pages.opportunity.OpportunityPageAbstract;
 
@@ -87,6 +88,16 @@ public class NavBarLightning extends NavBar {
     @Override
     public OpportunityPageAbstract goToOpportunityPage() {
         return new OpportunityLightningPage();
+    }
+
+    /**
+     * Returns Event page after clicking the option.
+     *
+     * @return an Event page.
+     */
+    @Override
+    public EventPageAbstract goToEventPage() {
+        return null;
     }
 
     /**

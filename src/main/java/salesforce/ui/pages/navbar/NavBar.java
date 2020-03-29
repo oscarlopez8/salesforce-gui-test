@@ -14,6 +14,7 @@ package salesforce.ui.pages.navbar;
 
 import salesforce.ui.pages.BasePage;
 import salesforce.ui.pages.cases.CasePageAbstract;
+import salesforce.ui.pages.event.EventPageAbstract;
 import salesforce.ui.pages.opportunity.OpportunityPageAbstract;
 
 /**
@@ -32,9 +33,16 @@ public abstract class NavBar extends BasePage {
     public abstract CasePageAbstract goToCasePage();
 
     /**
-     * Returns Opportinuty page after clicking on contact option.
+     * Returns Opportinuty page after clicking the option.
      *
      * @return an Opportinuty page.
      */
     public abstract OpportunityPageAbstract goToOpportunityPage();
+
+    /**
+     * Returns Event page after clicking the option.
+     *
+     * @return an Event page.
+     */
+    public abstract EventPageAbstract goToEventPage();
 }

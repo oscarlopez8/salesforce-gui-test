@@ -20,6 +20,8 @@ import salesforce.ui.pages.cases.CaseFormAbstract;
 import salesforce.ui.pages.cases.CaseLightningPage;
 import salesforce.ui.pages.cases.CasePageAbstract;
 import salesforce.ui.pages.cases.CaseClassicForm;
+import salesforce.ui.pages.event.EventClassicPage;
+import salesforce.ui.pages.event.EventPageAbstract;
 import salesforce.ui.pages.home.HomePage;
 import salesforce.ui.pages.home.HomePageClassic;
 import salesforce.ui.pages.home.HomePageLightning;
@@ -68,7 +70,6 @@ public class AppPageFactory {
      * @return a base app page.
      */
     public static BaseAppPageAbstract getBaseAppPage() {
-
         if (PAGE_LAYOUT_TYPE.equals(PAGE_CLASSIC)) {
             return  new BaseAppClassicPage();
         }
@@ -81,7 +82,6 @@ public class AppPageFactory {
      * @return a case page.
      */
     public static CasePageAbstract getCasePage() {
-
         if (PAGE_LAYOUT_TYPE.equals(PAGE_CLASSIC)) {
             return  new CaseClassicPage();
         }
@@ -94,7 +94,6 @@ public class AppPageFactory {
      * @return a case form page.
      */
     public static CaseFormAbstract getCaseFormPage() {
-
         if (PAGE_LAYOUT_TYPE.equals(PAGE_CLASSIC)) {
             return  new CaseClassicForm();
         }
@@ -107,10 +106,21 @@ public class AppPageFactory {
      * @return a Opportunity page.
      */
     public static OpportunityPageAbstract getOpportunityPage() {
-
         if (PAGE_LAYOUT_TYPE.equals(PAGE_CLASSIC)) {
             return  new OpportunityClassicPage();
         }
         return new OpportunityLightningPage();
+    }
+
+    /**
+     * Returns the Opportunity page according the page layout.
+     *
+     * @return a Opportunity page.
+     */
+    public static EventPageAbstract getEventyPage() {
+        if (PAGE_LAYOUT_TYPE.equals(PAGE_CLASSIC)) {
+            return  new EventClassicPage();
+        }
+        return new EventClassicPage();
     }
 }
