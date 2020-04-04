@@ -27,7 +27,7 @@ import salesforce.ui.pages.navbar.NavBarLightning;
 public class BaseAppLightningPage extends BaseAppPageAbstract {
 
     @FindBy(css = "div.slds-icon-waffle")
-    WebElement menuWaffle;
+    private WebElement menuWaffle;
 
     /**
      * Locator for switch Page link.

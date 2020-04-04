@@ -14,6 +14,8 @@ package salesforce.ui.pages.cases;
 
 import salesforce.ui.pages.BasePage;
 
+import java.util.Map;
+
 /**
  * Case Form Abstract Page class.
  *
@@ -65,9 +67,16 @@ public abstract class CaseFormAbstract extends BasePage {
     public abstract void setAccountName(String accountName);
 
     /**
-     * Enters a reason in the form.
+     * Get Id Case.
      *
-     * @param reason to set the reason.
      */
-    public abstract void setReason(String reason);
+    public abstract String getIdCase();
+
+    /**
+     * Click on Save Button.
+     *  @param caseMap to set the require data.
+     */
+    public abstract void clickOnSaveButton(Map<String, String> caseMap);
+
+
 }

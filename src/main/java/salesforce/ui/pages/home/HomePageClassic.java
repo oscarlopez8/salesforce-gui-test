@@ -34,7 +34,7 @@ public class HomePageClassic extends HomePage {
      * Web element to open the event form.
      */
     @FindBy(name = "newEvent")
-    private WebElement newEventBtn;
+    private WebElement eventButton;
 
     /**
      * Web element to open the event form.

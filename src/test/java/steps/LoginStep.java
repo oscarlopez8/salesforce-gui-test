@@ -13,6 +13,9 @@
 package steps;
 
 import cucumber.api.java.en.Given;
+import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
+import org.testng.Assert;
 import salesforce.ui.pages.LoginPage;
 import salesforce.ui.pages.TransporterPage;
 
@@ -40,8 +43,27 @@ public class LoginStep {
      * @param password parameter.
      */
     @Given("I am logged in SalesForce with {string} and {string}")
-    public void iAmLoggedInSalesForceWithAnd(final String userName, final String password) {
+    public void amLoggedInSalesForceWithAnd(final String userName, final String password) {
         loginPage = transporterPage.navigateToLoginPage();
         loginPage.login(userName, password);
+    }
+
+    @Given("Url Login Page")
+    public void urlLoginPage() {
+        loginPage = transporterPage.navigateToLoginPage();
+    }
+
+    @Then("Login should be unsuccessful")
+    public void loginShouldBeUnsuccessful() {
+
+        String expectedResult = "Compruebe su nombre de usuario y contrase\u00f1a. Si sigue sin poder iniciar " +
+        "sesi\u00f3n, p\u00f3ngase en contacto con su administrador de Salesforce.";
+        String actualResult = loginPage.getErrorMessage();
+        Assert.assertEquals(actualResult, expectedResult);
+    }
+
+    @When("I enter Username as {string} and Password as {string}")
+    public void enterUsernameAsAndPasswordAs(final String userName, final String password) {
+        loginPage.loginOutLine(userName,password);
     }
 }

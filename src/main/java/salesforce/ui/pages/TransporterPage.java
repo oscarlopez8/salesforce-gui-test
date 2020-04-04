@@ -13,6 +13,7 @@
 package salesforce.ui.pages;
 
 import core.selenium.WebDriverManager;
+import core.selenium.util.GetProperties;
 import core.selenium.util.SalesForceGetProperties;
 import org.openqa.selenium.WebDriver;
 import salesforce.ui.pages.home.HomePage;

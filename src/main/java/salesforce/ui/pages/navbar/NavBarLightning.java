@@ -13,8 +13,12 @@
 package salesforce.ui.pages.navbar;
 
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import salesforce.ui.pages.account.AccountLightningPage;
+import salesforce.ui.pages.account.AccountsPageAbstract;
+import salesforce.ui.pages.cases.CaseDetailsAbstract;
 import salesforce.ui.pages.cases.CaseLightningPage;
 import salesforce.ui.pages.cases.CasePageAbstract;
 import salesforce.ui.pages.opportunity.OpportunityLightningPage;
@@ -47,25 +51,44 @@ public class NavBarLightning extends NavBar {
     @FindBy(css = ".slds-p-right_small")
     private WebElement buttonMore;
 
+    @FindBy(xpath = "//span[text()='Cases' and @one-appnavbarmenuitem_appnavbarmenuitem=''] ")
+    private WebElement menuCase;
+
+    @FindBy(xpath = "//div[@class='slds-context-bar'] //span[text()='More']")
+    WebElement btnMore;
+
+    /**
+     * Web element of tab-bar.
+     */
+    @FindBy(xpath = "//div[@class='slds-context-bar']")
+    private WebElement tabBar;
+
+    /**
+     * Web element for the account option.
+     */
+    @FindBy(xpath = "//one-app-nav-bar-item-root[@data-id='Account']")
+    private WebElement accountsOption;
+
+    /**
+     * Web element for the contact option.
+     */
+    @FindBy(css = "[data-id='Contact']")
+    private WebElement contactTab;
+
     /**
      * Clicks in Case menu button.
      */
     private void clickAllMenuTab() {
-        allMenusTab.click();
+        accountsOption.click();
     }
 
     /**
-     * Clicks in menu more.
+     * Clicks in contact menu button.
      */
-    private void clickOnMoreMenu() {
-        buttonMore.click();
-    }
-
-    /**
-     * Clicks in Case menu button.
-     */
-    private void clickCaseOption() {
-        caseOption.click();
+    public void clickMenuMore() {
+        btnMore.click();
+        Actions action = new Actions(driver);
+        action.moveToElement(menuCase).click().perform();
     }
 
     /**
@@ -75,7 +98,7 @@ public class NavBarLightning extends NavBar {
      */
     @Override
     public CasePageAbstract goToCasePage() {
-        clickOnMoreMenu();
+        clickMenuMore();
         return new CaseLightningPage();
     }
 
@@ -90,10 +113,31 @@ public class NavBarLightning extends NavBar {
     }
 
     /**
+     * Returns Account page after clicking on account option.
+     *
+     * @return an Account page.
+     */
+    @Override
+    public AccountsPageAbstract clickAccountsOption() {
+        accountsOption.click();
+        return new AccountLightningPage();
+    }
+
+    /**
+     * Returns Case details page.
+     *
+     * @return an Case page.
+     */
+    @Override
+    public CaseDetailsAbstract goToCaseDetailsPage() {
+        return null;
+    }
+
+    /**
      * Waits until a webElement is loaded.
      */
     @Override
     protected void waitUntilPageObjectIsLoaded() {
-       //wait.until(ExpectedConditions.visibilityOf(allMenusTab));
+       wait.until(ExpectedConditions.visibilityOf(tabBar));
     }
 }

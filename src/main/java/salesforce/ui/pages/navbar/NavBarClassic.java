@@ -15,7 +15,11 @@ package salesforce.ui.pages.navbar;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import salesforce.ui.pages.account.AccountClassicPage;
+import salesforce.ui.pages.account.AccountsPageAbstract;
 import salesforce.ui.pages.cases.CaseClassicPage;
+import salesforce.ui.pages.cases.CaseDetailsAbstract;
+import salesforce.ui.pages.cases.CaseDetailsClassic;
 import salesforce.ui.pages.cases.CasePageAbstract;
 import salesforce.ui.pages.opportunity.OpportunityClassicPage;
 import salesforce.ui.pages.opportunity.OpportunityPageAbstract;
@@ -57,6 +61,12 @@ public class NavBarClassic extends NavBar {
      */
     @FindBy(id = "Opportunity_Tab")
     private WebElement opportunityMenu;
+
+    /**
+     * Web element for the account option.
+     */
+    @FindBy(xpath = "//li[@id='Account_Tab']//a")
+    private WebElement accountOption;
 
     /**
      * Clicks in Case menu button.
@@ -107,6 +117,27 @@ public class NavBarClassic extends NavBar {
     public OpportunityPageAbstract goToOpportunityPage() {
         clickOpportunityTab();
         return new OpportunityClassicPage();
+    }
+
+    /**
+     * Returns Account page after clicking on account option.
+     *
+     * @return an Account page.
+     */
+    @Override
+    public AccountsPageAbstract clickAccountsOption() {
+        accountOption.click();
+        return new AccountClassicPage();
+    }
+
+    /**
+     * Returns Case details page.
+     *
+     * @return an Case page.
+     */
+    @Override
+    public CaseDetailsAbstract goToCaseDetailsPage() {
+        return new CaseDetailsClassic();
     }
 
     /**

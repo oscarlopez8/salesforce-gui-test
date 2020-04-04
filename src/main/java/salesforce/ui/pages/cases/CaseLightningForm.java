@@ -14,37 +14,37 @@ package salesforce.ui.pages.cases;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
-import salesforce.ui.utils.UrlId;
 
 import java.util.Map;
 
-/**
- * Case Classic Form Page class.
- *
- * @author Oscar Lopez.
- * @version 1.0
- */
-public class CaseClassicForm extends CaseFormAbstract {
+public class CaseLightningForm extends CaseFormAbstract {
+
 
     /**
-     * Button Save.
+     * Origin Combo Box.
      */
-    @FindBy(css = "#topButtonRow input[name='save']")
+    @FindBy(xpath = "//a[@data-interactive-lib-uid='7']")
+    private WebElement originComboBox;
+
+    /**
+     * Status Combo Box.
+     */
+    @FindBy(xpath = "//input[@id='input-190']")
+    private WebElement statusComboBox;
+
+    /**
+     * Phone option.
+     */
+    @FindBy(xpath = "//a[@title='Phone']")
+    private WebElement phone;
+
+    /**
+     * Save Button.
+     */
+    @FindBy(xpath = "//button[@title='Save'] //span[contains(text(),'Save')]")
     private WebElement saveButton;
 
-    /**
-     * Status ComboBox.
-     */
-    @FindBy(name = "cas7")
-    private WebElement statusButton;
-
-    /**
-     * Origin ComboBox.
-     */
-    @FindBy(name = "cas11")
-    private WebElement originComboBox;
 
     /**
      * Variable to manage comboBox.
@@ -58,18 +58,18 @@ public class CaseClassicForm extends CaseFormAbstract {
      */
     @Override
     public CaseFormAbstract getCaseFormPage() {
-        return null;
+        return new CaseLightningForm();
     }
 
     /**
      * Enters a status in the form.
      *
-     * //@param status to set the status.
+     * @param status to set the status.
      */
     @Override
-    public void setStatus(final String status) {
-        dropdown = new Select(statusButton);
-        dropdown.selectByValue(status);
+    public void setStatus(String status) {
+        statusComboBox.sendKeys(status);
+        statusComboBox.click();
     }
 
     /**
@@ -78,7 +78,7 @@ public class CaseClassicForm extends CaseFormAbstract {
      * @param priority to set the priority.
      */
     @Override
-    public void setPriority(final String priority) {
+    public void setPriority(String priority) {
 
     }
 
@@ -88,9 +88,9 @@ public class CaseClassicForm extends CaseFormAbstract {
      * @param origin to set the origin.
      */
     @Override
-    public void setOrigin(final String origin) {
-        dropdown = new Select(originComboBox);
-        dropdown.selectByValue(origin);
+    public void setOrigin(String origin) {
+        originComboBox.sendKeys(origin);
+        phone.click();
     }
 
     /**
@@ -99,7 +99,7 @@ public class CaseClassicForm extends CaseFormAbstract {
      * @param contactName to set the contactName.
      */
     @Override
-    public void setContactName(final String contactName) {
+    public void setContactName(String contactName) {
 
     }
 
@@ -109,23 +109,22 @@ public class CaseClassicForm extends CaseFormAbstract {
      * @param accountName to set the accountName.
      */
     @Override
-    public void setAccountName(final String accountName) {
+    public void setAccountName(String accountName) {
 
     }
 
     /**
-     * Enters a reason in the form.
-     *
+     * Get Id Case.
      */
     @Override
-    public final String getIdCase() {
-        String currentUrl = driver.getCurrentUrl();
-        String id = UrlId.splitUrlToId(currentUrl);
-        return id;
+    public String getIdCase() {
+        return null;
     }
 
     /**
      * Click on Save Button.
+     *
+     * @param caseMap to set the require data.
      */
     @Override
     public void clickOnSaveButton(Map<String, String> caseMap) {
@@ -139,6 +138,6 @@ public class CaseClassicForm extends CaseFormAbstract {
      */
     @Override
     protected void waitUntilPageObjectIsLoaded() {
-        wait.until(ExpectedConditions.visibilityOf(saveButton));
+
     }
 }
