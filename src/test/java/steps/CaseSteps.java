@@ -13,13 +13,23 @@
 package steps;
 
 import cucumber.api.java.en.And;
+import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
 import io.restassured.response.Response;
+import org.testng.Assert;
+import salesforce.api.AccountAPI;
 import salesforce.entities.Context;
 import salesforce.ui.pages.AppPageFactory;
+import salesforce.ui.pages.app.BaseAppPageAbstract;
+import salesforce.ui.pages.cases.CaseClassicForm;
+import salesforce.ui.pages.cases.CaseDetailsAbstract;
 import salesforce.ui.pages.cases.CaseFormAbstract;
 import salesforce.ui.pages.cases.CasePageAbstract;
 
 import java.util.Map;
+
+import static salesforce.ui.utils.Constants.PAGE_CLASSIC;
+import static salesforce.ui.utils.Constants.PAGE_LAYOUT_TYPE;
 
 /**
  * Case Steps class.
@@ -35,9 +45,19 @@ public class CaseSteps {
     private Response response;
 
     /**
+     * Variable for the id Case.
+     */
+    private String id;
+
+    /**
      * Variable for the context.
      */
     private Context context;
+
+    /**
+     * Variable for the Base App Page Abstract page.
+     */
+    private BaseAppPageAbstract baseAppPage;
 
     /**
      * Variable for the Case Abstract page.
@@ -48,6 +68,11 @@ public class CaseSteps {
      * Variable for the case form.
      */
     private CaseFormAbstract caseForm;
+
+    /**
+     * Variable for the case form.
+     */
+    private CaseDetailsAbstract caseDetails;
 
     /**
      * Constructor of Case steps sending the context.
@@ -61,10 +86,10 @@ public class CaseSteps {
     /**
      * Opens the Case form from Cases page.
      */
-    @And("I open the Case form from Cases page")
+    @When("I open the Case form from Cases page")
     public void openTheCaseFormFromCasesPage() {
-        casePage = AppPageFactory.getCasePage();
         caseForm = casePage.clickNewBtn();
+        //caseForm.getStatus();
     }
 
     /**
@@ -72,8 +97,38 @@ public class CaseSteps {
      *
      * @param caseMap map param.
      */
-    @And("I create a new Case with the following information")
+    @When("I create a new Case with the following information")
     public void createANewCaseWithTheFollowingInformation(final Map<String, String> caseMap) {
+        caseForm.clickOnSaveButton(caseMap);
+    }
+
+    @When("I open the Case page")
+    public void openTheCasePage() {
+        baseAppPage = AppPageFactory.getBaseAppPage();
+        casePage = baseAppPage.getNavBar().goToCasePage();
+    }
+
+    @When("I do click on Details Menu")
+    public void soClickOnDetailsMenu() {
+        caseDetails = AppPageFactory.getCaseDetailsPage();
+        caseDetails.clickOnDetails();
+    }
+
+    @When("I close the Case")
+    public void closeTheCase() {
+        caseDetails.closeTheCase();
+    }
+
+    @Then("The case should be closed.")
+    public void theCaseShouldBeClosed() {
+        if (PAGE_LAYOUT_TYPE.equals(PAGE_CLASSIC)) {
+            String expectedResult = "Closed.";
+            Assert.assertEquals(caseDetails.getCaseClosed(), expectedResult);
+        } else {
+            String expectedResult = "Case status updated";
+            Assert.assertEquals(caseDetails.getCaseClosed(), expectedResult);
+        }
+
 
     }
 }

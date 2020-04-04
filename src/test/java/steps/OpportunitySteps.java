@@ -21,10 +21,9 @@ import salesforce.api.AccountAPI;
 import salesforce.entities.Account;
 import salesforce.entities.Context;
 import salesforce.ui.pages.AppPageFactory;
-import salesforce.ui.pages.TransporterPage;
 import salesforce.ui.pages.app.BaseAppPageAbstract;
+import salesforce.ui.pages.home.HomePage;
 import salesforce.ui.pages.opportunity.OpportunityPageAbstract;
-import salesforce.ui.utils.TokenGenerator;
 
 import java.util.Map;
 
@@ -65,6 +64,12 @@ public class OpportunitySteps {
      * App Base Abstract Page Class.
      */
     private BaseAppPageAbstract baseAppPage;
+
+    /**
+     * Home Abstract Page Class.
+     */
+    private HomePage homePage;
+
 
     /**
      * Constructor of Opportunity steps sending the context.
@@ -110,11 +115,7 @@ public class OpportunitySteps {
     @Then("The account name should be displayed in the Account Name input Text")
     public void theAccountNameShouldBeDisplayedInTheAccountNameInputText() {
         String expectedResult = context.getAccount().getAccountName();
-        System.out.println(opportunityPage.getAccountName());
-        Assert.assertEquals(opportunityPage.getAccountName(), expectedResult);
-    }
 
-    @When("I open the New Event form")
-    public void openTheNewEventForm() {
+        Assert.assertEquals(opportunityPage.getAccountName(), expectedResult);
     }
 }

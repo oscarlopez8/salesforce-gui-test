@@ -18,13 +18,15 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import salesforce.ui.pages.BasePage;
 
+import java.util.List;
+
 /**
  * Account Classic Page class.
  *
  * @author Limbert Vargas.
  * @version 1.0
  */
-public class AccountClassicPage extends BasePage {
+public class AccountClassicPage extends AccountsPageAbstract {
 
     /**
      *  Locator for User button.
@@ -49,6 +51,12 @@ public class AccountClassicPage extends BasePage {
      */
     @FindBy(css = "div[class*=first]")
     private WebElement firstRelatedList;
+
+    /**
+     * Web element for the button new.
+     */
+    @FindBy(css = "input[class='btn'][name='new']")
+    private WebElement newAccountButton;
 
     /**
      * Click un User name button.
@@ -85,5 +93,26 @@ public class AccountClassicPage extends BasePage {
     @Override
     protected void waitUntilPageObjectIsLoaded() {
         wait.until(ExpectedConditions.invisibilityOf(firstRelatedList));
+    }
+
+    /**
+     * Returns an Account Form page after clicking on new button.
+     *
+     * @return an account form page.
+     */
+    @Override
+    public AccountFormAbstract clickNewBtn() {
+        newAccountButton.click();
+        return new AccountClassicForm();
+    }
+
+    /**
+     * Returns a list with name accounts from the accounts page.
+     *
+     * @return a list of names account as string.
+     */
+    @Override
+    public List<String> getListOfAccountsName() {
+        return null;
     }
 }

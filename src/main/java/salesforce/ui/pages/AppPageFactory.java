@@ -12,22 +12,30 @@
 
 package salesforce.ui.pages;
 
+import salesforce.ui.pages.account.AccountClassicPage;
+import salesforce.ui.pages.account.AccountLightningPage;
+import salesforce.ui.pages.account.AccountsPageAbstract;
 import salesforce.ui.pages.app.BaseAppClassicPage;
 import salesforce.ui.pages.app.BaseAppLightningPage;
 import salesforce.ui.pages.app.BaseAppPageAbstract;
 import salesforce.ui.pages.cases.CaseClassicPage;
+import salesforce.ui.pages.cases.CaseDetailsAbstract;
+import salesforce.ui.pages.cases.CaseDetailsClassic;
+import salesforce.ui.pages.cases.CaseDetailsLightning;
 import salesforce.ui.pages.cases.CaseFormAbstract;
+import salesforce.ui.pages.cases.CaseLightningForm;
 import salesforce.ui.pages.cases.CaseLightningPage;
 import salesforce.ui.pages.cases.CasePageAbstract;
 import salesforce.ui.pages.cases.CaseClassicForm;
-import salesforce.ui.pages.event.EventClassicPage;
-import salesforce.ui.pages.event.EventPageAbstract;
 import salesforce.ui.pages.home.HomePage;
 import salesforce.ui.pages.home.HomePageClassic;
 import salesforce.ui.pages.home.HomePageLightning;
 import salesforce.ui.pages.opportunity.OpportunityClassicPage;
 import salesforce.ui.pages.opportunity.OpportunityLightningPage;
 import salesforce.ui.pages.opportunity.OpportunityPageAbstract;
+
+import static salesforce.ui.utils.Constants.PAGE_CLASSIC;
+import static salesforce.ui.utils.Constants.PAGE_LAYOUT_TYPE;
 
 /**
  * App Page Factory class.
@@ -36,16 +44,6 @@ import salesforce.ui.pages.opportunity.OpportunityPageAbstract;
  * @version 1.0
  */
 public class AppPageFactory {
-
-    /**
-     * Constant for the classic layout.
-     */
-    private static final String PAGE_CLASSIC = "classic";
-
-    /**
-     * Constant for the page layout type.
-     */
-    private static final String PAGE_LAYOUT_TYPE = PageUserExperienceType.getPageLayoutName();
 
     /**
      * Constructor of App Page Factory.
@@ -97,7 +95,7 @@ public class AppPageFactory {
         if (PAGE_LAYOUT_TYPE.equals(PAGE_CLASSIC)) {
             return  new CaseClassicForm();
         }
-        return new CaseClassicForm();
+        return new CaseLightningForm();
     }
 
     /**
@@ -113,14 +111,26 @@ public class AppPageFactory {
     }
 
     /**
-     * Returns the Opportunity page according the page layout.
+     * Returns the Accounts page according the page layout.
      *
-     * @return a Opportunity page.
+     * @return a the accounts page.
      */
-    public static EventPageAbstract getEventyPage() {
+    public static AccountsPageAbstract getAccountsPage() {
         if (PAGE_LAYOUT_TYPE.equals(PAGE_CLASSIC)) {
-            return  new EventClassicPage();
+            return  new AccountClassicPage();
         }
-        return new EventClassicPage();
+        return new AccountLightningPage();
+    }
+
+    /**
+     * Returns the Accounts page according the page layout.
+     *
+     * @return a the accounts page.
+     */
+    public static CaseDetailsAbstract getCaseDetailsPage() {
+        if (PAGE_LAYOUT_TYPE.equals(PAGE_CLASSIC)) {
+            return  new CaseDetailsClassic();
+        }
+        return new CaseDetailsLightning();
     }
 }

@@ -41,6 +41,11 @@ public class Context {
     private Opportunity opportunity;
 
     /**
+     * Event to manage in the context.
+     */
+    private Event event;
+
+    /**
      * Constructor of Context.
      */
     public Context() {
@@ -48,6 +53,7 @@ public class Context {
         this.contact = new Contact();
         this.cases = new Case();
         this.opportunity = new Opportunity();
+        this.event = new Event();
     }
 
     /**

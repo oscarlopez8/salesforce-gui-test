@@ -12,6 +12,11 @@
 
 package salesforce.ui.pages.cases;
 
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import salesforce.ui.pages.navbar.NavBar;
+import salesforce.ui.pages.navbar.NavBarLightning;
+
 /**
  * Base Case Lightning Page class.
  *
@@ -21,13 +26,27 @@ package salesforce.ui.pages.cases;
 public class CaseLightningPage extends CasePageAbstract {
 
     /**
+     * Button More.
+     */
+    @FindBy(css = "one-app-nav-bar-menu-button>a>span.slds-p-right_small")
+    private WebElement btnMore;
+
+    /**
+     * Button New.
+     */
+    @FindBy(xpath = "//div[@title='New']")
+    private WebElement newButton;
+
+
+    /**
      * Returns an Case Form page after clicking on new button.
      *
      * @return an case form page.
      */
     @Override
     public CaseFormAbstract clickNewBtn() {
-        return null;
+        newButton.click();
+        return new CaseLightningForm();
     }
 
     /**
@@ -37,7 +56,8 @@ public class CaseLightningPage extends CasePageAbstract {
      */
     @Override
     public CasePageAbstract getCasePage() {
-        return null;
+        btnMore.click();
+        return new CaseLightningPage();
     }
 
     /**

@@ -12,13 +12,22 @@
 
 package steps;
 
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.testng.Assert;
+import salesforce.api.AccountAPI;
+import salesforce.entities.Context;
+import salesforce.ui.pages.AppPageFactory;
 import salesforce.ui.pages.ShowAllTabsPage;
 import salesforce.ui.pages.account.AccountClassicPage;
+import salesforce.ui.pages.account.AccountFormAbstract;
+import salesforce.ui.pages.account.AccountsPageAbstract;
 import salesforce.ui.pages.account.MySettingsPage;
+import salesforce.ui.pages.app.BaseAppPageAbstract;
 import salesforce.ui.pages.navbar.NavBarClassic;
+
+import java.util.Map;
 
 /**
  * Account Steps Class.
@@ -27,6 +36,35 @@ import salesforce.ui.pages.navbar.NavBarClassic;
  * @version 1.0
  */
 public class AccountSteps {
+
+    /**
+     * Variable for the accounts page.
+     */
+    private AccountsPageAbstract accountsPage;
+
+    /**
+     * Variable for the base app page.
+     */
+    private BaseAppPageAbstract baseAppPage;
+
+    /**
+     * Variable for the account form.
+     */
+    private AccountFormAbstract accountForm;
+
+    /**
+     * Variable for the context.
+     */
+    private Context context;
+
+    /**
+     * Constructor of Opportunity steps sending the context.
+     *
+     * @param context init the context.
+     */
+    public AccountSteps(final Context context) {
+        this.context = context;
+    }
 
     /**
      * Method to go to My Settings page
@@ -82,5 +120,31 @@ public class AccountSteps {
         accountClassicPage.clickAccount();
         String actual = accountClassicPage.containFirstRelatedList();
         Assert.assertEquals(actual, "Case");
+    }
+
+    @When("I open the Accounts page")
+    public void openTheAccountsPage() {
+        baseAppPage = AppPageFactory.getBaseAppPage();
+        accountsPage = baseAppPage.getNavBar().clickAccountsOption();
+    }
+
+    @When("I open the Account form from Accounts page")
+    public void openTheAccountFormFromAccountsPage() {
+        accountsPage = AppPageFactory.getAccountsPage();
+        accountForm = accountsPage.clickNewBtn();
+    }
+
+    @When("I create an Account with the following information")
+    public void createAnAccountWithTheFollowingInformation(final Map<String, String> newAccount) {
+        //context.getAccount().setAccountInformation(newAccount);
+        //accountForm.setAccountInformationOnForm(newAccount);
+//        accountProfilePage = accountForm.clickOnSaveBtnFoot();
+//        context.getAccount().setId(accountProfilePage.getIdFromUrl());
+    }
+
+    @When("I create an Account with the <Name>")
+    public void iCreateAnAccountWithTheName(final Map<String, String> newAccount) {
+        context.getAccount().setAccountInformation(newAccount);
+        accountForm.setAccountInformationOnForm(newAccount);
     }
 }

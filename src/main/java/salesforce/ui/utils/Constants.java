@@ -12,6 +12,8 @@
 
 package salesforce.ui.utils;
 
+import salesforce.ui.pages.PageUserExperienceType;
+
 /**
  * Constants Class.
  *
@@ -39,4 +41,19 @@ public final class Constants {
     public static final String CLIENT_SECRET = "client_secret";
     public static final String FIRST_TOKEN = "first-token";
     public static final String ACCESS_TOKEN = "access_token";
+
+    // Path of gradle properties file.
+    public static final String PATH_OF_GRADLE_PROPERTIES_FILE = "gradle.properties";
+
+    /**
+     * Constant for the page layout type.
+     */
+    public static final String PAGE_LAYOUT_TYPE = PageUserExperienceType.getPageLayoutName();
+
+    /**
+     * Constant for the classic layout.
+     */
+    public static final String PAGE_CLASSIC = "classic";
+
+    public static final String NAME_ACCOUNT = "Name";
 }

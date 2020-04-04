@@ -14,6 +14,7 @@ package salesforce.ui.pages.home;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import salesforce.ui.pages.TransporterPage;
 
 /**
  * Home Page Lightning class.
@@ -36,6 +37,11 @@ public class HomePageLightning extends HomePage {
     private WebElement setupButton;
 
     /**
+     * Variable to Transporter Page.
+     */
+    TransporterPage transporterPage;
+
+    /**
      * Waits until a webElement is loaded.
      */
     @Override
@@ -49,5 +55,4 @@ public class HomePageLightning extends HomePage {
     public void setSetupButton() {
         this.setupButton.click();
     }
-
 }

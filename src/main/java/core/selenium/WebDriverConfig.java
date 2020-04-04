@@ -16,6 +16,8 @@ import core.selenium.util.GetProperties;
 
 import java.util.Properties;
 
+import static salesforce.ui.utils.Constants.PATH_OF_GRADLE_PROPERTIES_FILE;
+
 /**
  * This class is to configuration of Webdriver.
  *
@@ -23,9 +25,6 @@ import java.util.Properties;
  * @version 1.0
  */
 public final class WebDriverConfig {
-
-    // Path of gradle properties file.
-    public static final String PATH_OF_GRADLE_PROPERTIES_FILE = "gradle.properties";
 
     // Name of property of gradle properties file.
     public static final String BROWSER = "browserName";
