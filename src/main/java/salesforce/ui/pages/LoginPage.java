@@ -49,6 +49,13 @@ public class LoginPage extends BasePage {
     private WebElement loginButton;
 
     /**
+     * Web element for the Error Message.
+     */
+    @FindBy(css = "#error")
+    private WebElement errorMessage;
+
+
+    /**
      * Waits to Web Element be visible.
      */
     @Override
@@ -66,7 +73,6 @@ public class LoginPage extends BasePage {
         setUserName(SalesForceGetProperties.getInstance().getAppProperties().get(userName));
         setPassword(SalesForceGetProperties.getInstance().getAppProperties().get(password));
         clickSignInBtn();
-        //wait.until(ExpectedConditions.titleIs(HOME_PAGE_TITLE));
     }
 
     /**
@@ -92,5 +98,26 @@ public class LoginPage extends BasePage {
      */
     public void clickSignInBtn() {
         loginButton.click();
+    }
+
+    /**
+     * Login into salesforce.com.
+     *
+     * @param userName of the user.
+     * @param password of the user.
+     */
+    public void loginOutLine(final String userName, final String password) {
+        setUserName(userName);
+        setPassword(password);
+        clickSignInBtn();
+    }
+
+    /**
+     * Gets Error Message.
+     *
+     */
+    public String getErrorMessage() {
+        System.out.println(errorMessage.getText());
+        return errorMessage.getText();
     }
 }

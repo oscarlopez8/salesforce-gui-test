@@ -25,4 +25,4 @@ Feature: Manage account
     Examples:
       | Name            |
       | New Account     |
-#      | New Account two |
+      | New Account two |

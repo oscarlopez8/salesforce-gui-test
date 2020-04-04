@@ -22,6 +22,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
+import static salesforce.ui.utils.Constants.PATH_OF_GRADLE_PROPERTIES_FILE;
+
 /**
  * This class creates a instance of Browser.
  *
@@ -30,9 +32,17 @@ import java.util.Properties;
  */
 public final class ReportGenerator {
 
-    // Path of gradle properties file.
-    public static final String PATH_OF_GRADLE_PROPERTIES_FILE = "gradle.properties";
+
     public static final String BROWSER = "gradle.properties";
+
+    /**
+     * This method gets an instance of Report from getInstance.
+     *
+     * @return an instance Report.
+     */
+    public static ReportGenerator getInstance() {
+        return new ReportGenerator();
+    }
 
     /**
      * Constructor of a class.
@@ -49,7 +59,7 @@ public final class ReportGenerator {
         final File reportOutputDirectory = new File("target");
         final List<String> jsonFiles = new ArrayList<>();
         jsonFiles.add("target/cucumber.json");
-        final String projectName = "Trello-GUI";
+        final String projectName = "Salesforce-GUI";
         final boolean runWithJenkins = false;
         final Configuration configuration = new Configuration(reportOutputDirectory, projectName);
         // additional metadata presented on main page

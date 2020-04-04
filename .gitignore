@@ -8,6 +8,9 @@ gradlew
 gradlew.bat
 build/*
 
+# Report Folder
+target
+
 # Compiled class file
 *.class
 
